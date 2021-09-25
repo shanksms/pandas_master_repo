@@ -39,3 +39,6 @@ In all of the examples up until now, the aggregated data comes back with an inde
 composed from the unique group key combinations. Since this isn’t always desirable, you can disable this behavior in 
 most cases by passing as_index=False to groupby:
 '''
+print('#'*70)
+
+print(tips.groupby(['day', 'smoker'], as_index=False).mean())
