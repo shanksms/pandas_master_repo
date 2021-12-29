@@ -1,6 +1,7 @@
 # Important pandas concepts
 ### resources
 [pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)
+[Pandas interview question] (https://www.kaggle.com/getting-started/119445)
 
 ### convert a date time text to pandas Timestamp
 ```python

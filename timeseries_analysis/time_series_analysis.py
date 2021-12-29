@@ -39,3 +39,25 @@ mb = 2 ** 20
 
 print(round(mem_cat / mb, 1), round(mem_obj / mb, 1))
 print(crime.index[:2])
+
+'''
+Filtering columns with time data
+'''
+crime = pd.read_hdf('crime.h5', 'crime')
+print('#' * 80)
+print(crime.dtypes)
+# below works
+print(crime.loc[crime.REPORTED_DATE == '2016-05-12 16:45:00', ])
+# Select all rows with a partial date match. If we try this with the equality operator, it fails.
+# We do not get an error, but there are no rows returned:
+print('#' * 80)
+print(crime.loc[crime.REPORTED_DATE == '2016-05-12', ])
+
+# If we want a partial date match, we can use the .between method, which supports partial date strings. Note that
+# the start and end dates (the parameter names are left and right respectively) are inclusive by default.
+# If there were a row with a date on midnight May 13, 2016, it would be included here:
+print('#' * 80)
+print(crime.loc[crime.REPORTED_DATE.between('2016-05-12', '2016-05-13'), ])
+
+# Because .between supports partial date strings, we can replicate most of the slicing functionality of the previous
+# section with it. We can match just a month, year, or hour of the day:
