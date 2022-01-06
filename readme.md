@@ -22,3 +22,10 @@ pd.to_datetime('2015-5-13').to_pydatetime()
 
 ```
 
+### Strip time from Timestamp
+```python
+import pandas as pd
+df = pd.DataFrame()
+df['EffectiveDate'] = df['EffectiveDate'].dt.date
+```
+
