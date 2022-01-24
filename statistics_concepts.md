@@ -13,3 +13,4 @@ A special case of categorical data with just two categories of values, e.g., 0/1
 (Synonyms: dichotomous, logical, indicator, boolean)
 #### Ordinal
 Categorical data that has an explicit ordering. (Synonym: ordered factor)
+``````
