@@ -29,3 +29,9 @@ df = pd.DataFrame()
 df['EffectiveDate'] = df['EffectiveDate'].dt.date
 ```
 
+### convert a series to dataframe
+```python
+import pandas as pd
+s = pd.Series([0.1, 0.2, 0.3])
+df = pd.DataFrame({'weight': s})
+```
