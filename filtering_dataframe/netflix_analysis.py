@@ -37,5 +37,8 @@ print('#' * 80)
 print('print rows with tile limitless')
 limitless = netflix_df.loc[:, 'title'] == 'Limitless'
 print(netflix_df.loc[limitless, :])
+print('#' * 80)
+print('Identify dates when Netflix added only one movie')
+print(netflix_df.drop_duplicates(subset=['date_added'], keep=False))
 
 
