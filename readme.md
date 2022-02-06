@@ -72,6 +72,55 @@ employees[earning_below_40k | started_after_2015].head()
 employees.loc[earning_below_40k | started_after_2015 , :].head()
 
 ```
+##### inversion with tilda ~
+```python
+import pandas as pd
+my_series = pd.Series([True, False, True])
+print(my_series)
+print(~my_series)
+```
+```shell script
+Out [37] 0     True
+         1    False
+         2     True
+         dtype: bool
+  
+Out [38] 0    False
+         1     True
+         2    False
+         dtype: bool
+```
+##### The isin method
+isin method accepts an iterable of elements (list, tuple, Series, and so on) and returns a Boolean Series.
+True denotes that pandas found the row’s value among the iterable’s values, and False denotes that it did not.
+When we have the Series, we can use it to filter the DataFrame in the usual manner. The next example achieves the same
+result set:
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+all_star_teams = ["Sales", "Legal", "Marketing"]
+on_all_star_teams = employees["Team"].isin(all_star_teams)
+employees[on_all_star_teams].head()
+```
+##### The isnull and notnull methods
+Pandas considers the NaN, NaT and None values to be null as well. The next example invokes the isnull method on the Start Date column:
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+employees["Team"].isnull().head()
+employees["Team"].notnull().head()
+```
+```shell script
+Out [48] 0    False
+         1     True
+         2    False
+         3    False
+         4    False
+         Name: Team, dtype: bool
+```
+The notnull method returns the inverse Series, one in which True indicates that a row’s value is present. The following
+output communicates that indices 0, 2, 3, and 4 do not have missing values:
+
 ### reducing memory footprint
 Let's checkout following dataframe
 ```python
