@@ -3,6 +3,93 @@
 [pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)
 [Pandas interview question] (https://www.kaggle.com/getting-started/119445)
 
+### reducing memory footprint
+Let's checkout following dataframe
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+employees.info()
+
+```
+```shell script
+Out [3]
+ 
+  First Name  Gender  Start Date    Salary   Mgmt       Team
+0    Douglas    Male  1993-08-06       NaN   True  Marketing
+1     Thomas    Male  1996-03-31   61933.0   True        NaN
+2      Maria  Female         NaT  130590.0  False    Finance
+3      Jerry     NaN  2005-03-04  138705.0   True    Finance
+4      Larry    Male  1998-01-24  101004.0   True         IT
+ 
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1001 entries, 0 to 1000
+Data columns (total 6 columns):
+ #   Column      Non-Null Count  Dtype
+---  ------      --------------  -----
+ 0   First Name  933 non-null    object
+ 1   Gender      854 non-null    object
+ 2   Start Date  999 non-null    datetime64[ns]
+ 3   Salary      999 non-null    float64
+ 4   Mgmt        933 non-null    object
+ 5   Team        957 non-null    object
+dtypes: datetime64[ns](1), float64(1), object(4)
+message usage: 47.0+ KB
+```
+Mgmt series type is object. Since it only contains True or False we can convert the type to boolean which is light weight.
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+employees.info()
+employees["Mgmt"] = employees["Mgmt"].astype(bool)
+employees.info()
+```
+```shell script
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1001 entries, 0 to 1000
+Data columns (total 6 columns):
+ #   Column      Non-Null Count  Dtype
+---  ------      --------------  -----
+ 0   First Name  933 non-null    object
+ 1   Gender      854 non-null    object
+ 2   Start Date  999 non-null    datetime64[ns]
+ 3   Salary      999 non-null    float64
+ 4   Mgmt        1001 non-null   bool
+ 5   Team        957 non-null    object
+dtypes: bool(1), datetime64[ns](1), float64(1), object(3)
+memory usage: 40.2+ KB
+```
+Next, let’s transition to the Salary column. If we open the raw CSV file, we can see that its values are stored as whole numbers:
+```shell script
+First Name,Gender,Start Date,Salary,Mgmt,Team
+Douglas,Male,8/6/93,,True,Marketing
+Thomas,Male,3/31/96,61933,True,
+Maria,Female,,130590,False,Finance
+Jerry,,3/4/05,138705,True,Finance
+```
+In employees, however, pandas stores the Salary values at floats. To support the NaNs throughout the column, pandas
+converts the integers to floating-point numbers—a technical requirement of the library that we observed in earlier chapters.
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+employees["Salary"] = employees["Salary"].fillna(0).astype(int)
+```
+When there few unique numbers in a column, we can convert that column to Category
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+employees.nunique()
+employees["Gender"] = employees["Gender"].astype("category")
+```
+```shell script
+Out [14] First Name    200
+         Gender          2
+         Start Date    971
+         Salary        995
+         Mgmt            2
+         Team           10
+         dtype: int64
+```
+With above changes, we can reduce memory footprints by 40%
 ### Dataframe object
 The pandas DataFrame is a two-dimensional table of data with rows and columns.  
 As with a Series, pandas assigns an index label and an index position to each DataFrame row.  
@@ -82,6 +169,39 @@ nba.sort_index(axis = "columns").head() # sort by columns
 nba.sort_index(axis = 1).head()
 ```
 
+#### select columns based on datatypes
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.select_dtypes(include = "object")
+```
+
+#### loc and iloc
+1. The loc attribute extracts a row by label. We call attributes such as loc accessors because  
+they access a piece of data. Type a pair of square brackets immediately after loc and pass in the target index label.
+2. The iloc (index location) accessor extracts rows by index position, which is helpful when the position of our rows  
+has significance in our data set. The syntax is similar to the one we used for loc. Enter a pair of square brackets
+after iloc, and pass in an integer. Pandas will extract the row at that index.
+
+Both the loc and iloc attributes accept a second argument representing the column(s) to extract.
+If we’re using loc, we have to provide the column name. If we’re using iloc, we have to provide the column position.
+The next example uses loc to pull the value at the intersection of the "Giannis Antetokounmpo" row and the Team column
+
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.loc["Giannis Antetokounmpo", "Team"]
+#following will select all the rows and Team column
+nba.loc[:, 'Team']
+
+```
+#### resetting the index
+reset_index function moves the current index to a column and creates a new monotonic integer index.
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.reset_index().head()
+```
 ### Dataframe object - ends
 
 ### Series object 
