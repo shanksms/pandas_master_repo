@@ -26,7 +26,7 @@ Out [47] 0     1.0
          5    15.0
          dtype: float64
 ```
-#### pct_change
+##### pct_change
 The pct_change method returns pct difference from one Series value to another.  
 The pct_change method defaults to a forward-fill strategy for missing values. With this strategy, pandas replaces  
 a nan with the last valid value it encountered. Let’s invoke the method and then walk through the calculations:
@@ -45,9 +45,9 @@ Out [50] 0         NaN
          5    0.250000
          dtype: float64
 ```
-#### describe
+##### describe
 describe is a handy method for summarize series. It provides avg, mean, std
-#### Broadcasting
+##### Broadcasting
 Pandas stores Series values in a numpy ndarray under the hood. When we use syntax like s + 3, pandas delegate the  
 operation to numpy.  
 Syntax like s1 + 3 means “Apply the same operation (add 3) to each value in the Series.” Each Series value gets  
@@ -73,11 +73,21 @@ Following is a pictorial representation of the operation.
 
 #### mathematical operations on Series object - ends
 
+#### converting series to list, dict etc
+```python
+import pandas as pd
+cities = pd.Series(['Newyork', 'California', 'Washington'])
+print(dict(cities))
+print(list(cities))
+```
+### Series - ends 
 
 ### representing missing value in pandas
 #### np.nan
 nan stands for not a number. In pandas nan is used for missing values. if there is column which hold numeric value  
 and if this column as missing value, pandas will automatically convert the datatype to float.
+#### np.NaT for missing dates
+NaT stands for Not a time.
 
 ### convert a date time text to pandas Timestamp
 ```python
