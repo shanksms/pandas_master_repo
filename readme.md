@@ -26,6 +26,53 @@ Out [47] 0     1.0
          5    15.0
          dtype: float64
 ```
+#### pct_change
+The pct_change method returns pct difference from one Series value to another.  
+The pct_change method defaults to a forward-fill strategy for missing values. With this strategy, pandas replaces  
+a nan with the last valid value it encountered. Let’s invoke the method and then walk through the calculations:
+```python
+import pandas as pd
+import numpy as np
+numbers = pd.Series([1, 2, 3, np.nan, 4, 5])
+numbers.pct_change()
+```
+```shell script
+Out [50] 0         NaN
+         1    1.000000
+         2    0.500000
+         3    0.000000
+         4    0.333333
+         5    0.250000
+         dtype: float64
+```
+#### describe
+describe is a handy method for summarize series. It provides avg, mean, std
+#### Broadcasting
+Pandas stores Series values in a numpy ndarray under the hood. When we use syntax like s + 3, pandas delegate the  
+operation to numpy.  
+Syntax like s1 + 3 means “Apply the same operation (add 3) to each value in the Series.” Each Series value gets  
+the same message, much as every person listening to the same radio station at the same time hears the same song.
+
+Broadcasting also describes mathematical operations between multiple Series objects. As a rule of thumb,  
+pandas uses shared index labels to align values across different data structures. Let’s demonstrate this  
+concept through an example. Let’s instantiate two Series with the same three-element index:
+```python
+import pandas as pd
+s1 = pd.Series([1, 2, 3], index = ["A", "B", "C"])
+s2 = pd.Series([4, 5, 6], index = ["A", "B", "C"])
+print(s1 + s2)
+```
+```shell script
+Out [74] A    5
+         B    7
+         C    9
+         dtype: int64
+```
+Following is a pictorial representation of the operation.
+![](images/broadcasting.PNG)  
+
+#### mathematical operations on Series object - ends
+
 
 ### representing missing value in pandas
 #### np.nan
