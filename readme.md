@@ -35,6 +35,43 @@ Suppose that we want to find all female employees who work on the business devel
 for two conditions to select a row: a value of "Female" in the Gender column and a value of "Business Dev" in the Team
 column. The two criteria are independent, but both must be met. Here’s a quick reminder of how AND logic works with two conditions:
 ![](images/multiple_filtering_condition.PNG)
+
+##### and condition
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+marias = employees["First Name"] == "Maria"
+is_female = employees["Gender"] == "Female"
+in_biz_dev = employees["Team"] == "Business Dev"
+employees[is_female & in_biz_dev].head()
+employees.loc[is_female & in_biz_dev , :].head()
+
+```
+```shell script
+Out [33]
+ 
+   First Name  Gender Start Date  Salary   Mgmt          Team
+9     Frances  Female 2002-08-08  139852   True  Business Dev
+33       Jean  Female 1993-12-18  119082  False  Business Dev
+36     Rachel  Female 2009-02-16  142032  False  Business Dev
+38  Stephanie  Female 1986-09-13   36844   True  Business Dev
+61     Denise  Female 2001-11-06  106862  False  Business Dev
+```
+
+##### or condition
+We can also extract rows if they fit one of several conditions. Not all conditions have to be true,
+but at least one does. Here’s a quick reminder of how OR logic works with two conditions:
+![](images/multiple_filtering_or_condition.PNG)
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+marias = employees["First Name"] == "Maria"
+earning_below_40k = employees["Salary"] < 40000
+started_after_2015 = employees["Start Date"] > "2015-01-01"
+employees[earning_below_40k | started_after_2015].head()
+employees.loc[earning_below_40k | started_after_2015 , :].head()
+
+```
 ### reducing memory footprint
 Let's checkout following dataframe
 ```python
