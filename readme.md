@@ -3,6 +3,38 @@
 [pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)
 [Pandas interview question] (https://www.kaggle.com/getting-started/119445)
 
+### filtering in dataframe and series
+#### filtering by single condition
+```python
+import pandas as pd
+employees = pd.read_csv("employees.csv", parse_dates = ["Start Date"]).head()
+marias = employees["First Name"] == "Maria"
+# following two lines are same
+employees.loc[marias, :]
+employees[marias]
+```
+employees["First Name"] == "Maria" returns a series of boolean (also known as boolean masks)
+```shell script
+Out [22] 0       False
+         1       False
+         2        True
+         3       False
+         4       False
+                 ...
+         996     False
+         997     False
+         998     False
+         999     False
+         1000    False
+         Name: First Name, Length: 1001, dtype: bool
+```
+#### filtering by multiple condition
+We can filter a DataFrame with multiple conditions by creating two independent Boolean Series and then declaring
+the logical criterion that pandas should apply between them.
+Suppose that we want to find all female employees who work on the business development team. Now pandas must look
+for two conditions to select a row: a value of "Female" in the Gender column and a value of "Business Dev" in the Team
+column. The two criteria are independent, but both must be met. Here’s a quick reminder of how AND logic works with two conditions:
+![](images/multiple_filtering_condition.PNG)
 ### reducing memory footprint
 Let's checkout following dataframe
 ```python
