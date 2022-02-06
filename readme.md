@@ -3,6 +3,87 @@
 [pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)
 [Pandas interview question] (https://www.kaggle.com/getting-started/119445)
 
+### Dataframe object
+The pandas DataFrame is a two-dimensional table of data with rows and columns.  
+As with a Series, pandas assigns an index label and an index position to each DataFrame row.  
+Pandas also assigns a label and a position to each column. The DataFrame is two-dimensional because  
+it requires two points of reference—a row and a column—to isolate a value from the data set.  
+Figure 4.1 displays a visual example of a pandas DataFrame. A DataFrame can hold multiple columns of data.
+It’s helpful to think of the column headers as a second index. City, Country, and Population are three index labels on  
+the column axis; pandas assigns them the index positions 0, 1, and 2, respectively.
+It’s also helpful to think of a DataFrame as being a collection of Series objects with a common index.  
+In this example, the five columns in nba (Name, Team, Position, Birthday, and Salary) share the same row index.  
+Let’s get to work exploring the DataFrame.
+![](images/dataframe.PNG)  
+
+#### creating dataframe from dictionary
+```python
+import pandas as pd
+city_data = {
+            "City": ["New York City", "Paris", "Barcelona", "Rome"],
+            "Country": ["United States", "France", "Spain", "Italy"],
+            "Population": [8600000, 2141000, 5515000, 2873000]
+        }
+city_df = pd.DataFrame(city_data)
+# below code will transpose the dataframe
+city_df.T
+```
+
+#### using parse_dates attribute to change the date to type datetime
+```python
+import pandas as pd
+pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+```
+
+#### finding data types of each column
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.dtypes
+```
+```shell script
+Out [13] Name                object
+         Team                object
+         Position            object
+         Birthday    datetime64[ns]
+         Salary               int64
+         dtype: object
+```
+#### find n smallest players
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.dtypes
+nba.nsmallest(n = 3, columns = ["Birthday"])
+```
+```shell script
+Out [34]
+ 
+              Name             Team Position   Birthday   Salary
+98    Vince Carter    Atlanta Hawks       PF 1977-01-26  2564753
+196  Udonis Haslem       Miami Heat        C 1980-06-09  2564753
+262    Kyle Korver  Milwaukee Bucks       PF 1981-03-17  6004753
+```
+
+#### sort by column values 
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.sort_values("Name")
+nba.sort_values(by = "Name")
+```
+#### sort by row and column
+```python
+import pandas as pd
+nba = pd.read_csv("nba.csv", parse_dates = ["Birthday"])
+nba.sort_index().head() # by row index
+# following two lines are same.
+nba.sort_index(axis = "columns").head() # sort by columns
+nba.sort_index(axis = 1).head()
+```
+
+### Dataframe object - ends
+
 ### Series object 
 the Series is a one-dimensional labeled array for homogeneous data.  
 A Series combines and expands the best features of Python’s native data structures.  
