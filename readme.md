@@ -440,3 +440,47 @@ import pandas as pd
 s = pd.Series([0.1, 0.2, 0.3])
 df = pd.DataFrame({'weight': s})
 ```
+### multi index
+So far on our pandas journey, we’ve explored the one-dimensional Series and the two-dimensional DataFrame.
+The number of dimensions is the number of reference points we need to extract a value from a data structure.
+We need only one label or one index position to locate a value in a Series. We need two reference points to locate a
+value in a DataFrame: a label/index for the rows and a label/index for the columns. Can we expand beyond two dimensions?
+Absolutely! Pandas supports data sets with any number of dimensions through the use of a MultiIndex.  
+A MultiIndex is an index object that holds multiple levels.
+#### Create multindexes manually
+Let’s say we want to model a street address. An address typically includes a street name, city, town, and zip code.
+We could store these four elements in a tuple:
+```python
+import pandas as pd
+addresses = [
+            ("8809 Flair Square", "Toddside", "IL", "37206"),
+            ("9901 Austin Street", "Toddside", "IL", "37206"),
+            ("905 Hogan Quarter", "Franklin", "IL", "37206"),
+        ]
+row_index = pd.MultiIndex.from_tuples(
+            tuples = addresses,
+            names = ["Street", "City", "State", "Zip"]
+        )
+column_index = pd.MultiIndex.from_tuples(
+             [
+                 ("Culture", "Restaurants"),
+                 ("Culture", "Museums"),
+                 ("Services", "Police"),
+                 ("Services", "Schools"),
+             ]
+         )
+ 
+data = [
+            ["C-", "B+", "B-", "A"],
+            ["D+", "C", "A", "C+"],
+            ["A-", "A", "D+", "F"]
+        ]
+pd.DataFrame(
+             data = data, index = row_index, columns = column_index
+         )
+
+
+```
+To summarize, a MultiIndex is a storage container in which each label holds multiple values.A level consists of the
+values at the same position across the labels.
+
