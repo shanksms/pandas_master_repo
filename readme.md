@@ -484,3 +484,53 @@ pd.DataFrame(
 To summarize, a MultiIndex is a storage container in which each label holds multiple values.A level consists of the
 values at the same position across the labels.
 
+#### refer to multiindex_example.py for creating multiindex dataframe from csv
+
+#### sorting a multi index
+When we invoke the method on a MultiIndex DataFrame, pandas sorts all levels in ascending order and proceeds from
+the outside in. In the next example, pandas sorts the State-level values first, then the City-level values, and finally
+the Street-level values:
+
+```python
+import pandas as pd
+
+neighborhoods = pd.read_csv(
+    "neighborhoods.csv",
+    index_col=[0, 1, 2],
+    header=[0, 1]
+)
+neighborhoods.sort_index()
+```
+```shell script
+Category                                  Culture         Services
+Subcategory                           Restaurants Museums   Police Schools
+State City            Street                                              
+AK    Rowlandchester 386 Rebecca ...          C-      A-       A+        C
+      Scottstad      082 Leblanc ...           D      C-        D       B+
+                     114 Jones Ga...          D-      D-        D        D
+      Stevenshire    238 Andrew Rue           D-       A       A-       A-
+AL    Clarkland      430 Douglas ...           A       F       C+       B+
+ ...       ...           ...                  ...     ...      ...     ...
+WY    Lake Nicole    754 Weaver T...           B      D-        B        D
+                     933 Jennifer...           C      A+       A-        C
+      Martintown     013 Bell Mills           C-       D       A-       B-
+      Port Jason     624 Faulkner...          A-       F       C+       C+
+      Reneeshire     717 Patel Sq...           B      B+        D        A
+ 
+251 rows × 4 columns
+```
+We can also pass ascending as list. Following example will sort first level in ascending order, second level in descending order
+and so on.
+```python
+import pandas as pd
+
+neighborhoods = pd.read_csv(
+    "neighborhoods.csv",
+    index_col=[0, 1, 2],
+    header=[0, 1]
+)
+neighborhoods.sort_index(ascending = [True, False, True]).head()
+
+```
+
+#### selecting with multilevel index
