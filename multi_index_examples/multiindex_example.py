@@ -27,3 +27,4 @@ print(neighborhoods.columns.get_level_values(0))
 print(neighborhoods.columns.get_level_values("Category"))
 print(neighborhoods.nunique())
 
+

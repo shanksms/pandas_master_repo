@@ -1,6 +1,6 @@
 # Important pandas concepts
 ### resources
-[pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)
+[pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)  
 [Pandas interview question] (https://www.kaggle.com/getting-started/119445)
 
 ### filtering in dataframe and series
@@ -534,3 +534,64 @@ neighborhoods.sort_index(ascending = [True, False, True]).head()
 ```
 
 #### selecting with multilevel index
+
+
+### Working with text data
+#### removing whitespaces and letter casing
+If you run following code snippet, you will see whitespaces.
+```python
+import pandas as pd
+inspections = pd.read_csv("chicago_food_inspections.csv")
+print(inspections)
+print(inspections["Name"].head().values)
+```
+```shell script
+                                      Name             Risk
+0                  MARRIOT MARQUIS CHICAGO    Risk 1 (High)
+1                               JETS PIZZA  Risk 2 (Medium)
+2                                ROOM 1520     Risk 3 (Low)
+3                  MARRIOT MARQUIS CHICAGO    Risk 1 (High)
+4                               CHARTWELLS    Risk 1 (High)
+     ...                                  ...                 ...
+153805                           WOLCOTT'S    Risk 1 (High)
+153806        DUNKIN DONUTS/BASKIN-ROBBINS  Risk 2 (Medium)
+153807                            Cafe 608    Risk 1 (High)
+153808                         mr.daniel's    Risk 1 (High)
+153809                          TEMPO CAFE    Risk 1 (High)
+ 
+153810 rows × 2 columns
+
+Out [4] array([' MARRIOT MARQUIS CHICAGO   ', ' JETS PIZZA ',
+               '   ROOM 1520 ', '  MARRIOT MARQUIS CHICAGO  ',
+               ' CHARTWELLS   '], dtype=object)
+```
+The Series object’s str attribute exposes a StringMethods object, a powerful toolbox of methods for working with strings:
+```shell script
+In  [5] inspections["Name"].str
+Out [5] <pandas.core.strings.StringMethods at 0x122ad8510>
+```
+Any time we’d like to perform string manipulations, we invoke a method on the StringMethods object rather than the
+Series itself. Some methods work like Python’s native string methods, whereas other methods are exclusive to pandas.
+
+```python
+import pandas as pd
+inspections = pd.read_csv("chicago_food_inspections.csv")
+inspections["Name"] = inspections["Name"].str.strip()
+```
+Lets say you'like to perform strip operation on all the columns.
+```python
+import pandas as pd
+inspections = pd.read_csv("chicago_food_inspections.csv")
+for column in inspections.columns:
+    inspections[column] = inspections[column].str.strip()
+```
+All of Python’s character casing methods are available on the StringMethods object. The lower method, for example,
+lowercases all string characters:
+```shell script
+inspections["Name"].str.lower().head()
+```
+#### rename columns
+```shell script
+df.columns = df.columns.str.replace("_", "")
+```
+
