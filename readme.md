@@ -595,3 +595,191 @@ inspections["Name"].str.lower().head()
 df.columns = df.columns.str.replace("_", "")
 ```
 
+### reshaping and pivoting
+Reshaping a dataset means manipulating it to different shapes, one that tells a story which could not, otherwise,  
+gleaned from the original presentation.
+
+#### Wide and narrow data
+A wide data set increases in width; it grows out. A narrow/long/tall data set increases in height; it grows down.
+```shell script
+   Weekday  Miami  New York
+0   Monday    100        65
+1  Tuesday    105        70
+```
+Consider the variables, the measurements that vary. One might think that the only variables in this data set are the  
+weekdays and the temperatures. But an additional variable is hiding in the column names: the city. This data set stores  
+the same variable—temperature—across two columns instead of one. The Miami and New York headers do not describe the data  
+their columns store—that is, 100 is not a type of Miami in the same way that Monday is a type of Weekday. The data set has  
+hidden the varying cities variable by storing it in the column headers. We can categorize this table as being a wide  
+data set. A wide data set expands horizontally.
+Suppose that we introduced temperature measurements for two more cities. We would have to add two new columns for the  
+same variable: the temperature. Notice the direction in which the data set expands. The data grows wider, not taller:
+```shell script
+   Weekday  Miami  New York  Chicago  San Francisco
+0   Monday    100        65       50             60
+1  Tuesday    105        70       58             62
+```
+A narrow data set grows vertically. A narrow format makes it easier to manipulate existing data and to add new records.  
+Each variable is isolated to a single column. Compare the first table in this section with the following table:
+```shell script
+   Weekday           City  Temperature
+0   Monday          Miami          100
+1   Monday       New York           65
+2   Monday        Chicago           50
+3   Monday  San Francisco           60
+4  Tuesday          Miami          105
+5  Tuesday       New York           70
+6  Tuesday        Chicago           58
+7  Tuesday  San Francisco           62
+```
+#### pivot_table method
+We follow four steps to create a pivot table:  
+1. Select the column(s) whose values we want to aggregate.
+2. Choose the aggregation operation to apply to the column(s).
+3. Select the column(s) whose values will group the aggregated data into categories.
+4. Determine whether to place the groups on the row axis, the column axis, or both axes.
+
+```python
+import pandas as pd
+print(pd.read_csv("sales_by_employee.csv", parse_dates = ["Date"]))
+
+```
+```shell script
+   Date   Name       Customer  Revenue  Expenses
+0  1/1/20  Oscar  Logistics XYZ     5250       531
+1  1/1/20  Oscar    Money Corp.     4406       661
+2  1/2/20  Oscar     PaperMaven     8661      1401
+3  1/3/20  Oscar    PaperGenius     7075       906
+4  1/4/20  Oscar    Paper Pound     2524      1767
+```
+```shell script
+In  [7] sales.pivot_table(
+            index = "Date", values = "Revenue", aggfunc = "sum"
+        )
+ 
+Out [7]
+ 
+            Revenue
+Date               
+2020-01-01    25761
+2020-01-02    36515
+2020-01-03    29195
+2020-01-04    19740
+2020-01-05    19339
+```
+
+```shell script
+In  [8] sales.pivot_table(
+            index = "Date",
+            columns = "Name",
+            values = "Revenue",
+            aggfunc = "sum"
+        )
+ 
+Out [8]
+ 
+Name          Creed   Dwight     Jim  Michael   Oscar
+Date                                                 
+2020-01-01   4430.0   2639.0  1864.0   7172.0  9656.0
+2020-01-02  13214.0      NaN  8278.0   6362.0  8661.0
+2020-01-03      NaN  11912.0  4226.0   5982.0  7075.0
+2020-01-04   3144.0      NaN  6155.0   7917.0  2524.0
+2020-01-05    938.0   7771.0     NaN   7837.0  2793.0
+```
+
+#### stacking and unstacking
+stack moves an index level from column axis to row axis.  
+unstack moves an inner index level from row axis to column axis.  
+```shell script
+In  [17] sales.head()
+ 
+Out [17]
+ 
+        Date   Name       Customer  Revenue  Expenses
+0 2020-01-01  Oscar  Logistics XYZ     5250       531
+1 2020-01-01  Oscar    Money Corp.     4406       661
+2 2020-01-02  Oscar     PaperMaven     8661      1401
+3 2020-01-03  Oscar    PaperGenius     7075       906
+4 2020-01-04  Oscar    Paper Pound     2524      1767
+
+```
+Let’s pivot sales to organize revenue by employee name and date. We’ll place dates on the column axis and names on the row axis  
+
+```shell script
+In  [18] by_name_and_date = sales.pivot_table(
+             index = "Name",
+             columns = "Date",
+             values = "Revenue",
+             aggfunc = "sum"
+         )
+ 
+         by_name_and_date.head(2)
+ 
+Out [18]
+ 
+Date    2020-01-01  2020-01-02  2020-01-03  2020-01-04  2020-01-05
+Name                                                              
+Creed       4430.0     13214.0         NaN      3144.0       938.0
+Dwight      2639.0         NaN     11912.0         NaN      7771.0
+```
+
+```shell script
+In  [19] by_name_and_date.stack().head(7)
+ 
+Out [19]
+ 
+Name    Date
+Creed   2020-01-01     4430.0
+        2020-01-02    13214.0
+        2020-01-04     3144.0
+        2020-01-05      938.0
+Dwight  2020-01-01     2639.0
+        2020-01-03    11912.0
+        2020-01-05     7771.0
+dtype: float64
+```
+
+The complementary unstack method moves an index level from the row axis to the column axis. Consider the following pivot  
+table, which groups revenue by customer and salesman. The row axis has a two-level MultiIndex, and the column axis has a regular index:
+```shell script
+In  [20] sales_by_customer = sales.pivot_table(
+             index = ["Customer", "Name"],
+             values = "Revenue",
+             aggfunc = "sum"
+         )
+ 
+         sales_by_customer.head()
+ 
+Out [20]
+ 
+                           Revenue
+Customer          Name            
+Average Paper Co. Creed      13214
+                  Jim         2287
+Best Paper Co.    Dwight      2703
+                  Michael    15754
+Logistics XYZ     Dwight      9209
+```
+
+The unstack method moves the innermost level of the row index to the column index:  
+```shell script
+In  [21] sales_by_customer.unstack()
+ 
+Out [21]
+ 
+                   Revenue
+Name                 Creed  Dwight     Jim  Michael   Oscar
+Customer                                                   
+Average Paper Co.  13214.0     NaN  2287.0      NaN     NaN
+Best Paper Co.         NaN  2703.0     NaN  15754.0     NaN
+Logistics XYZ          NaN  9209.0     NaN   7172.0  5250.0
+Money Corp.         5368.0     NaN  8278.0      NaN  4406.0
+Paper Pound            NaN  7771.0  4226.0      NaN  5317.0
+PaperGenius            NaN  2639.0  1864.0  12344.0  7075.0
+PaperMaven          3144.0     NaN  3868.0      NaN  8661.0
+```
+
+
+
+
+
