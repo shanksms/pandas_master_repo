@@ -779,6 +779,128 @@ PaperGenius            NaN  2639.0  1864.0  12344.0  7075.0
 PaperMaven          3144.0     NaN  3868.0      NaN  8661.0
 ```
 
+#### melting a dataset
+A pivot table aggregates the values in a data set. In this section, we’ll learn how to do the opposite:  
+break an aggregated collection of data into an unaggregated one.
+
+Let’s apply our wide-versus-narrow framework to the sales DataFrame. Here’s an effective strategy to figure out whether  
+a data set is in narrow format: navigate across one row of values, and ask each cell whether its value is a single  
+measurement of the variable that the column header is describing. Here’s the first row of sales:
+```shell script
+In  [22] sales.head(1)
+ 
+Out [22]
+ 
+        Date   Name       Customer  Revenue  Expenses
+0 2020-01-01  Oscar  Logistics XYZ     5250       531
+```
+
+In the previous example, "2020-01-01" is a Date, "Oscar" is a Name, "Logistics XYZ" is a Customer, 5250 is a Revenue  
+amount, and 531 is an Expenses amount. The sales DataFrame is an example of a narrow data set. Each row value represents  
+a single observation for a given variable. No variable repeats across multiple columns.  
+The next data set, video_game_sales.csv, is a listing of regional sales for more than 16,000 video games.  
+Each row includes the game’s name as well as the number of units sold (in millions) in the North America (NA), Europe (EU),  
+Japan (JP), and other (Other) regions:
+
+```shell script
+In  [23] video_game_sales = pd.read_csv("video_game_sales.csv")
+         video_game_sales.head()
+ 
+Out [23]
+ 
+                  Name     NA     EU     JP  Other
+0           Wii Sports  41.49  29.02   3.77   8.46
+1    Super Mario Bros.  29.08   3.58   6.81   0.77
+2       Mario Kart Wii  15.85  12.88   3.79   3.31
+3    Wii Sports Resort  15.75  11.01   3.28   2.96
+4  Pokemon Red/Poke...  11.27   8.89  10.22   1.00
+```
+
+The first cell is fine; "Wii Sports" is an example of a Name. The next four cells are problematic. 41.49 is not a type  
+of NA or a measurement of NA. NA (North America) is not a variable whose values vary throughout its column. The NA column’s  
+real piece of variable data is the sales numbers. NA represents the region for those sales numbers—a separate and distinct variable.
+Thus, video_game_sales stores its data in wide format. Four columns (NA, EU, JP, and Other) store the same data point: the number  
+of units sold. If we added more regional sales columns, the data set would grow horizontally. If we can group multiple  
+column headers in a common category, it is a hint that the data set is storing its data in wide format.  
+Pandas melts a DataFrame with the melt method. (Melting is the process of converting a wide data set to a narrow one.)  
+The method accepts two primary parameters:
+The id_vars parameter sets the identifier column, the column for which the wide data set aggregates data. Name is the identifier  
+column in video_game_sales. The data set aggregates sales per video game.
+The value_vars parameter accepts the column(s) whose values pandas will melt and store in a new column.
+
+```shell script
+In  [26] regional_sales_columns = ["NA", "EU", "JP", "Other"]
+
+In  [27] video_game_sales_by_region = video_game_sales.melt(
+             id_vars = "Name",
+             value_vars = regional_sales_columns,
+             var_name = "Region",
+             value_name = "Sales"
+         )
+ 
+         video_game_sales_by_region.head()
+ 
+Out [27]
+ 
+                       Name Region  Sales
+0                Wii Sports     NA  41.49
+1         Super Mario Bros.     NA  29.08
+2            Mario Kart Wii     NA  15.85
+3         Wii Sports Resort     NA  15.75
+4  Pokemon Red/Pokemon Blue     NA  11.27
+```
+#### Exploding a list of values
+Sometimes, a data set stores multiple values in the same cell. We may want to break up the data cluster so that each  
+row stores a single value. Consider recipes.csv, a collection of three recipes, each of which has a name and an ingredients  
+list. The ingredients are stored in a single comma-separated string:
+```shell script
+In  [29] recipes = pd.read_csv("recipes.csv")
+         recipes
+ 
+Out [29]
+ 
+                    Recipe                              Ingredients
+0   Cashew Crusted Chicken  Apricot preserves, Dijon mustard, cu...
+1      Tomato Basil Salmon  Salmon filets, basil, tomato, olive ...
+2  Parmesan Cheese Chicken  Bread crumbs, Parmesan cheese, Itali...
+
+In  [31] recipes["Ingredients"] = recipes["Ingredients"].str.split(",")
+         recipes
+ 
+Out [31]
+ 
+                    Recipe                              Ingredients
+0   Cashew Crusted Chicken  [Apricot preserves,  Dijon mustard, ...
+1      Tomato Basil Salmon  [Salmon filets,  basil,  tomato,  ol...
+2  Parmesan Cheese Chicken  [Bread crumbs,  Parmesan cheese,  It...
+```
+
+Now, how can we spread out each list’s values across multiple rows? The explode method creates a separate row for  
+each list element in a Series. We invoke the method on a DataFrame and pass in the column with lists:
+```shell script
+In  [32] recipes.explode("Ingredients")
+ 
+Out [32]
+ 
+                   Recipe         Ingredients
+0  Cashew Crusted Chicken   Apricot preserves
+0  Cashew Crusted Chicken       Dijon mustard
+0  Cashew Crusted Chicken        curry powder
+0  Cashew Crusted Chicken     chicken breasts
+0  Cashew Crusted Chicken             cashews
+1     Tomato Basil Salmon       Salmon filets
+1     Tomato Basil Salmon               basil
+1     Tomato Basil Salmon              tomato
+1     Tomato Basil Salmon           olive oil
+1     Tomato Basil Salmon     Parmesan cheese
+2  Simply Parmesan Cheese        Bread crumbs
+2  Simply Parmesan Cheese     Parmesan cheese
+2  Simply Parmesan Cheese   Italian seasoning
+2  Simply Parmesan Cheese                 egg
+2  Simply Parmesan Cheese     chicken breasts
+```
+
+
 
 
 
