@@ -963,6 +963,143 @@ Transportation            UPS   65872.0   4910.0     346415  Mail, Pack...
 Wholesalers          McKesson  198533.0   5070.0      64500  Wholesaler...
 ```
 
+The GroupBy object assigns index positions to the rows in each sector group. The first fortune row in the "Aerospace &  
+Defense" sector has an index position of 0 within its group. Likewise, the first fortune row in the "Apparel" sector has  
+an index position of 0 within its group. The index positions are independent between groups.
+The nth method extracts the row at a given index position within its group. If we invoke the nth method with an argument of 0,  
+we get the first company within each sector. The next DataFrame is identical to the one returned by the first method. 
+  
+   
+We can use the get_group method to extract all rows in a given group. The method returns a DataFrame containing the rows.  
+The next example shows all companies in the "Energy" sector:
+```shell script
+In  [25] sectors.get_group("Energy").head()
+ 
+Out [25]
+ 
+           Company  Revenues  Profits  Employees  Sector        Industry
+1      Exxon Mobil  244363.0  19710.0      71200  Energy  Petroleum R...
+12         Chevron  134533.0   9195.0      51900  Energy  Petroleum R...
+27     Phillips 66   91568.0   5106.0      14600  Energy  Petroleum R...
+30   Valero Energy   88407.0   4065.0      10015  Energy  Petroleum R...
+40  Marathon Pe...   67610.0   3432.0      43800  Energy  Petroleum R...
+```
+
+#### Aggregate operations
+sum method calculates the sum per sector for the three numeric columns (Revenues, Profits, and Employees) in the fortune DataFrame.  
+We invoke the sum method on the GroupBy object:
+```shell script
+In  [26] sectors.sum().head(10)
+ 
+Out [26]
+ 
+                             Revenues   Profits  Employees
+Sector                                                    
+Aerospace & Defense          383835.0   26733.5    1010124
+Apparel                      101157.3    6350.7     355699
+Business Services            316090.0   37179.2    1593999
+Chemicals                    251151.0   20475.0     474020
+Energy                      1543507.2   85369.6     981207
+Engineering & Construction   172782.0    7121.0     420745
+Financials                  2442480.0  264253.5    3500119
+Food &  Drug Stores          405468.0    8440.3    1398074
+Food, Beverages & Tobacco    510232.0   54902.5    1079316
+Health Care                 1507991.4   92791.1    2971189
+```
+We can target a single fortune column by passing its name inside square brackets after the GroupBy object. Pandas returns a new object, a SeriesGroupBy  
+```shell script
+In  [31] sectors["Revenues"]
+ 
+Out [31] <pandas.core.groupby.generic.SeriesGroupBy object at 0x114778210>
+```
+The agg method applies multiple aggregate operations to different columns and accepts a dictionary as its argument. In each key-value pair,  
+the key denotes a DataFrame column, and the value specifies the aggregate operation to apply to the column. The next example extracts the lowest revenue,  
+highest profit, and average number of employees for each sector:
+```shell script
+In  [36] aggregations = {
+             "Revenues": "min",
+             "Profits": "max",
+             "Employees": "mean"
+         }
+ 
+         sectors.agg(aggregations).head()
+ 
+Out [36]
+ 
+                     Revenues  Profits     Employees
+Sector                                              
+Aerospace & Defense    1877.0   8197.0  40404.960000
+Apparel                2350.0   4240.0  25407.071429
+Business Services      1851.0   6699.0  30075.452830
+Chemicals              1925.0   3000.4  14364.242424
+Energy                 1874.0  19710.0   9170.158879
+```
+####  Applying a custom operation to all groups
+Suppose that we want to apply a custom operation to each nested group in a GroupBy object. In section 9.4, we used the GroupBy object’s  
+max method to find each sector’s maximum revenue. Let’s say we want to identify the company with the highest revenue in each sector.  
+
+A DataFrame’s nlargest method extracts the rows with the greatest value in a given column. 
+```shell script
+In  [38] def get_largest_row(df):
+             return df.nlargest(1, "Revenues")
+In  [39] sectors.apply(get_largest_row).head()
+ 
+Out [39]
+ 
+                        Company  Revenues  Profits  Employees      Industry
+Sector                                                                     
+Aerospace ... 26         Boeing   93392.0   8197.0     140800  Aerospace...
+Apparel       88           Nike   34350.0   4240.0      74400       Apparel
+Business S... 142  ManpowerG...   21034.0    545.4      29000  Temporary...
+Chemicals     46      DowDuPont   62683.0   1460.0      98000     Chemicals
+Energy        1     Exxon Mobil  244363.0  19710.0      71200  Petroleum...
+```
+
+#### Grouping by multiple columns
+We can create a GroupBy object with values from multiple DataFrame columns. This operation is optimal when a combination  
+of column values serves as the best identifier for a group. The next example passes a list of two strings to the groupby method.  
+Pandas groups the rows first by the Sector column’s values and then by the Industry column’s values. Remember that a company’s industry  
+is a subcategory within a larger sector:
+```shell script
+In  [40] sector_and_industry = fortune.groupby(by = ["Sector", "Industry"])
+
+```
+The GroupBy object’s size method now returns a MultiIndex Series with a count of rows for each internal group. This GroupBy object has  
+a length of 82, which means that fortune has 82 unique combinations of sector and industry:
+```shell script
+In  [41] sector_and_industry.size()
+ 
+Out [41]
+ 
+Sector               Industry                                           
+Aerospace & Defense  Aerospace and Defense                            25
+Apparel              Apparel                                          14
+Business Services    Advertising, marketing                            2
+                     Diversified Outsourcing Services                 14
+                     Education                                         2
+                                                                      ..
+Transportation       Trucking, Truck Leasing                          11
+Wholesalers          Wholesalers: Diversified                         24
+                     Wholesalers: Electronics and Office Equipment     8
+                     Wholesalers: Food and Grocery                     6
+                     Wholesalers: Health Care                          6
+Length: 82, dtype: int64
+
+In  [42] sector_and_industry.get_group(("Business Services", "Education"))
+ 
+Out [42]
+ 
+          Company  Revenues  Profits  Employees        Sector   Industry
+567  Laureate ...    4378.0     91.5      54500  Business ...  Education
+810  Graham Ho...    2592.0    302.0      16153  Business ...  Education
+```
+
+
+
+
+
+
+
 
 
 
