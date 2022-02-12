@@ -899,6 +899,69 @@ Out [32]
 2  Simply Parmesan Cheese                 egg
 2  Simply Parmesan Cheese     chicken breasts
 ```
+### Groupby operations
+```shell script
+fortune = pd.read_csv("fortune1000.csv")
+
+          Company  Revenues  Profits  Employees        Sector      Industry
+0         Walmart  500343.0   9862.0    2300000     Retailing  General M...
+1     Exxon Mobil  244363.0  19710.0      71200        Energy  Petroleum...
+2    Berkshire...  242137.0  44940.0     377000    Financials  Insurance...
+3           Apple  229234.0  48351.0     123000    Technology  Computers...
+4    UnitedHea...  201159.0  10558.0     260000   Health Care  Health Ca...
+...       ...         ...       ...       ...           ...             ...
+995  SiteOne L...    1862.0     54.6       3664   Wholesalers  Wholesale...
+996  Charles R...    1858.0    123.4      11800   Health Care  Health Ca...
+997     CoreLogic    1851.0    152.2       5900  Business ...  Financial...
+998  Ensign Group    1849.0     40.5      21301   Health Care  Health Ca...
+999           HCP    1848.0    414.2        190    Financials   Real estate
+ 
+1000 rows × 6 columns
+```
+
+Let us group by sector
+```shell script
+sectors = fortune.groupby("Sector")
+<pandas.core.groupby.generic.DataFrameGroupBy object at
+         0x1235b1d10>
+```
+DataFrameGroupBy is sort of dictionary of dataframes where key is sector and value is corresponding dataframe.
+```shell script
+In  [13] len(sectors)
+ 
+Out [13] 21
+
+In  [14] fortune["Sector"].nunique()
+ 
+Out [14] 21
+```
+The size method on the GroupBy object returns a Series with an alphabetical list of the groups and their row counts.  
+The following output tells us that 25 fortune companies have a Sector value of "Aerospace & Defense", 14 have a value of "Apparel", and so on:
+
+#### methods on DataFrameGroupBy
+find the highest-performing company (by revenue) within each sector? The GroupBy object’s first method extracts the first  
+row listed for each sector in fortune. Because our fortune DataFrame is sorted by revenue, the first company pulled out for each  
+sector will be the highest-performing company within that sector. The return value of first is a 21-row DataFrame (one company per sector):
+
+```shell script
+In  [18] sectors.first()
+ 
+Out [18]
+ 
+                      Company  Revenues  Profits  Employees       Industry
+Sector                                                                    
+Aerospace &...         Boeing   93392.0   8197.0     140800  Aerospace ...
+Apparel                  Nike   34350.0   4240.0      74400        Apparel
+Business Se...  ManpowerGroup   21034.0    545.4      29000  Temporary ...
+Chemicals           DowDuPont   62683.0   1460.0      98000      Chemicals
+Energy            Exxon Mobil  244363.0  19710.0      71200  Petroleum ...
+ ...                ...          ...        ...        ...             ...
+Retailing             Walmart  500343.0   9862.0    2300000  General Me...
+Technology              Apple  229234.0  48351.0     123000  Computers,...
+Telecommuni...           AT&T  160546.0  29450.0     254000  Telecommun...
+Transportation            UPS   65872.0   4910.0     346415  Mail, Pack...
+Wholesalers          McKesson  198533.0   5070.0      64500  Wholesaler...
+```
 
 
 
