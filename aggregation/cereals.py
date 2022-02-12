@@ -55,6 +55,8 @@ print(' minimum value in the Fiber column for each manufacturer')
 print(cereals_group_by_df['Fiber'].min())
 
 
+def get_largest_row(df):
+    return df.nlargest(1, "Sugars")
+print('#' * 80)
 
-
-
+print(cereals_group_by_df.apply(get_largest_row))
