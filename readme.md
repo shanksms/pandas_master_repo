@@ -1094,6 +1094,365 @@ Out [42]
 810  Graham Ho...    2592.0    302.0      16153  Business ...  Education
 ```
 
+### Working with datetime 
+Pandas introduces the Timestamp object as a replacement for Python’s datetime object. We can view the Timestamp and datetime  
+objects as being siblings; they are often interchangeable in the pandas ecosystem, such as when being passed as method arguments.  
+Much as the Series expands on a Python list, the Timestamp adds features to the more primitive datetime object.
+
+Pandas considers a Timestamp to be equal to a date/datetime if the two objects store the same information. We can use the == symbols to compare object equality
+```shell script
+In  [18] (pd.Timestamp(year = 1991, month = 4, day = 12)
+            == dt.date(year = 1991, month = 4, day = 12))
+ 
+Out [18] True
+ 
+In  [19] (pd.Timestamp(year = 1991, month = 4, day = 12, minute = 2)
+            == dt.datetime(year = 1991, month = 4, day = 12, minute = 2))
+ 
+Out [19] True
+
+In  [26] pd.Timestamp(dt.datetime(2000, 2, 3, 21, 35, 22))
+
+``` 
+### Storing Timestamp in datetime index
+An index is the collection of identifier labels attached to a pandas data structure. The most common index we’ve encountered  
+so far is the RangeIndex, a sequence of ascending or descending numeric values. We can access the index of a Series or a DataFrame via the index attribute:
+
+```shell script
+In  [30] timestamps = [
+             pd.Timestamp("2020-01-01"),
+             pd.Timestamp("2020-02-01"),
+             pd.Timestamp("2020-03-01"),
+         ]
+ 
+         pd.Series([1, 2, 3], index = timestamps).index
+ 
+Out [30] DatetimeIndex(['2020-01-01', '2020-02-01', '2020-03-01'],
+         dtype='datetime64[ns]', freq=None)
+```
+Date- and time-related operations become possible in pandas only when we store our values as Timestamps rather than strings.  
+Pandas can’t deduce a day of the week from a string like "2018-01-02" because it views it as being a collection of digits and dashes,  
+not an actual date. That’s why it’s imperative to convert all relevant string columns to datetimes when importing a data set for the first time.
+
+We can use the sort_index method to sort a DatetimeIndex in ascending or descending order. The next example sorts the index dates in ascending order (earliest to latest)
+```shell script
+In  [35] s.sort_index()
+ 
+Out [35] 2009-09-07    300
+         2016-04-12    200
+         2018-01-02    100
+         dtype: int64
+```
+#### Converting column or index values to datetimes
+```shell script
+In  [37] disney = pd.read_csv("disney.csv")
+         disney.head()
+ 
+Out [37]
+ 
+         Date      High       Low      Open     Close
+0  1962-01-02  0.096026  0.092908  0.092908  0.092908
+1  1962-01-03  0.094467  0.092908  0.092908  0.094155
+2  1962-01-04  0.094467  0.093532  0.094155  0.094155
+3  1962-01-05  0.094779  0.093844  0.094155  0.094467
+4  1962-01-08  0.095714  0.092285  0.094467  0.094155
+```
+There are two ways to convert the Date from string to datetime
+1. passing parse_dates argument to read_csv
+2. using pd.to_datetime
+```shell script
+In  [37] disney = pd.read_csv("disney.csv", parse_dates=['Date'])
+         disney.head()
+
+In  [41] pd.to_datetime(disney["Date"]).head()
+ 
+Out [41] 0   1962-01-02
+         1   1962-01-03
+         2   1962-01-04
+         3   1962-01-05
+         4   1962-01-08
+         Name: Date, dtype: datetime64[ns]
+```
+#### Using the DatetimeProperties object
+A datetime Series holds a special dt attribute that exposes a DatetimeProperties object.
+```shell script
+
+
+In  [44] disney["Date"].dt
+ 
+Out [44] <pandas.core.indexes.accessors.DatetimeProperties object at
+         0x116247950>
+
+```
+We can access attributes and invoke methods on the DatetimeProperties object to extract information from the columns’ datetime values.  
+The dt attribute is to datetimes what the str attribute is to strings. (See chapter 6 for a review of str.) Both attributes specialize in  
+manipulations of a specific type of data.  
+Following are some examples
+```shell script
+In  [46] disney["Date"].dt.day.head(3)
+ 
+Out [46] 0    2
+         1    3
+         2    4
+         Name: Date, dtype: int64
+
+In  [47] disney["Date"].dt.month.head(3)
+ 
+Out [47] 0    1
+         1    1
+         2    1
+         Name: Date, dtype: int64
+
+In  [48] disney["Date"].dt.year.head(3)
+ 
+Out [48] 0    1962
+         1    1962
+         2    1962
+         Name: Date, dtype: int64
+
+In  [50] disney["Date"].dt.day_name().head()
+ 
+Out [50] 0      Tuesday
+         1    Wednesday
+         2     Thursday
+         3       Friday
+         4       Monday
+         Name: Date, dtype: object
+
+
+```
+#### Adding and subtracting durations of time
+We can add or subtract consistent durations of time with the DateOffset object. Its constructor is available at the top level of pandas.  
+The constructor accepts parameters for years, months, days, and more. 
+```shell script
+In  [64] (disney["Date"] + pd.DateOffset(days = 5)).head()
+ 
+Out [64] 0   1962-01-07
+         1   1962-01-08
+         2   1962-01-09
+         3   1962-01-10
+         4   1962-01-13
+         Name: Date, dtype: datetime64[ns]
+
+In  [65] (disney["Date"] - pd.DateOffset(days = 3)).head()
+ 
+Out [65] 0   1961-12-30
+         1   1961-12-31
+         2   1962-01-01
+         3   1962-01-02
+         4   1962-01-05
+         Name: Date, dtype: datetime64[ns]
+```
+#### dateoffsets
+```shell script
+In  [68] disney["Date"].tail()
+ 
+Out [68] 14722   2020-06-26
+         14723   2020-06-29
+         14724   2020-06-30
+         14725   2020-07-01
+         14726   2020-07-02
+         Name: Date, dtype: datetime64[ns]
+
+In  [69] (disney["Date"] + pd.offsets.MonthEnd()).tail()
+ 
+Out [69] 14722   2020-06-30
+         14723   2020-06-30
+         14724   2020-07-31
+         14725   2020-07-31
+         14726   2020-07-31
+         Name: Date, dtype: datetime64[ns]
+
+In  [70] (disney["Date"] - pd.offsets.MonthEnd()).tail()
+ 
+Out [70] 14722   2020-05-31
+         14723   2020-05-31
+         14724   2020-05-31
+         14725   2020-06-30
+         14726   2020-06-30
+         Name: Date, dtype: datetime64[ns]
+
+In  [71] (disney["Date"] + pd.offsets.MonthBegin()).tail()
+ 
+Out [71] 14722   2020-07-01
+         14723   2020-07-01
+         14724   2020-07-01
+         14725   2020-08-01
+         14726   2020-08-01
+         Name: Date, dtype: datetime64[ns]
+
+In  [72] (disney["Date"] - pd.offsets.MonthBegin()).tail()
+ 
+Out [72] 14722   2020-06-01
+         14723   2020-06-01
+         14724   2020-06-01
+         14725   2020-06-01
+         14726   2020-07-01
+         Name: Date, dtype: datetime64[ns]
+
+
+```
+
+Business month offsets
+```shell script
+In  [73] may_dates = ["2020-05-28", "2020-05-29", "2020-05-30"]
+         end_of_may = pd.Series(pd.to_datetime(may_dates))
+         end_of_may
+ 
+Out [73] 0   2020-05-28
+         1   2020-05-29
+         2   2020-05-30
+         dtype: datetime64[ns]
+
+In  [74] end_of_may + pd.offsets.MonthEnd()
+ 
+Out [74] 0   2020-05-31
+         1   2020-05-31
+         2   2020-05-31
+         dtype: datetime64[ns]
+
+In  [75] end_of_may + pd.offsets.BMonthEnd()
+ 
+Out [75] 0   2020-05-29
+         1   2020-06-30
+         2   2020-06-30
+         dtype: datetime64[ns]
+
+```
+#### The Timedelta object
+You may recall Python’s native timedelta object from earlier in the chapter. A timedelta models duration—the distance between two times.  
+A duration such as one hour represents a length of time; it does not have a specific date or time attached. Pandas models a duration with its own Timedelta object.
+
+NOTE It’s easy to confuse the two objects. timedelta is built into Python, whereas Timedelta is built into pandas. The two are interchangeable when used with pandas operations.
+
+The Timedelta constructor is available at the top level of pandas. It accepts keyword parameters for units of time such as days, hours, minutes, and seconds.
+```shell script
+In  [76] duration = pd.Timedelta(
+            days = 8,
+            hours = 7,
+            minutes = 6,
+            seconds = 5
+        )
+ 
+         duration
+ 
+Out [76] Timedelta('8 days 07:06:05')
+In  [80] pd.Timestamp("1999-02-05") - pd.Timestamp("1998-05-24")
+ 
+Out [80] Timedelta('257 days 00:00:00')
+```
+Let see some examples
+```shell script
+In  [81] deliveries = pd.read_csv("deliveries.csv")
+         deliveries.head()
+ 
+Out [81]
+ 
+  order_date delivery_date
+0    5/24/98        2/5/99
+1    4/22/92        3/6/98
+2    2/10/91       8/26/92
+3    7/21/92      11/20/97
+4     9/2/93       6/10/98
+
+In  [83] for column in ["order_date", "delivery_date"]:
+             deliveries[column] = pd.to_datetime(deliveries[column])
+```
+Let us calculate difference between order date and delivery date
+```shell script
+In  [85] (deliveries["delivery_date"] - deliveries["order_date"]).head()
+ 
+Out [85] 0    257 days
+         1   2144 days
+         2    563 days
+         3   1948 days
+         4   1742 days
+         dtype: timedelta64[ns]
+
+In  [86] deliveries["duration"] = (
+             deliveries["delivery_date"] - deliveries["order_date"]
+         )
+         deliveries.head()
+ 
+Out [86]
+ 
+  order_date delivery_date  duration
+0 1998-05-24    1999-02-05  257 days
+1 1992-04-22    1998-03-06 2144 days
+2 1991-02-10    1992-08-26  563 days
+3 1992-07-21    1997-11-20 1948 days
+4 1993-09-02    1998-06-10 1742 days
+
+In  [87] deliveries.dtypes
+ 
+Out [87] order_date        datetime64[ns]
+         delivery_date     datetime64[ns]
+         duration         timedelta64[ns]
+         dtype: object
+```
+The sort_values method works with Timedelta Series. The next example sorts the duration column in ascending order, from the shortest delivery to the longest one:
+
+```shell script
+In  [90] deliveries.sort_values("duration")
+ 
+Out [90]
+ 
+    order_date delivery_date  duration
+454 1990-05-24    1990-06-01    8 days
+294 1994-08-11    1994-08-20    9 days
+10  1998-05-10    1998-05-19    9 days
+499 1993-06-03    1993-06-13   10 days
+143 1997-09-20    1997-10-06   16 days
+...        ...           ...       ...
+152 1990-09-18    1999-12-19 3379 days
+62  1990-04-02    1999-08-16 3423 days
+458 1990-02-13    1999-11-15 3562 days
+145 1990-03-07    1999-12-25 3580 days
+448 1990-01-20    1999-11-12 3583 days
+ 
+```
+
+Mathematical methods are also available on Timedelta Series. The next few examples highlight three methods we’ve used throughout the book: max for the largest  
+value, min for the smallest value, and mean for the average:
+```shell script
+In  [91] deliveries["duration"].max()
+ 
+Out [91] Timedelta('3583 days 00:00:00')
+ 
+In  [92] deliveries["duration"].min()
+ 
+Out [92] Timedelta('8 days 00:00:00')
+ 
+In  [93] deliveries["duration"].mean()
+ 
+Out [93] Timedelta('1217 days 22:53:53.532934')
+```
+
+Here’s the next challenge. Let’s filter the DataFrame for packages that took more than a year to deliver. We can use the greater-than symbol  
+(>) to compare each duration column value to a fixed duration. We can specify the length of time as a Timedelta or as a string. The next example uses "365 days":
+```shell script
+In  [94] # The two lines below are equivalent
+         (deliveries["duration"] > pd.Timedelta(days = 365)).head()
+         (deliveries["duration"] > "365 days").head()
+ 
+Out [94] 0      False
+         1       True
+         2       True
+         3       True
+         4       True
+         Name: Delivery Time, dtype: bool
+
+In  [95] deliveries[deliveries["duration"] > "365 days"].head()
+ 
+Out [95]
+ 
+  order_date delivery_date  duration
+1 1992-04-22    1998-03-06 2144 days
+2 1991-02-10    1992-08-26  563 days
+3 1992-07-21    1997-11-20 1948 days
+4 1993-09-02    1998-06-10 1742 days
+6 1990-01-25    1994-10-02 1711 days
+```
 
 
 
