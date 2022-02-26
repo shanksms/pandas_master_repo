@@ -15,14 +15,15 @@ Imagine you have n letters and you have to choose k letter. In this case orderin
 
 ### replacement and ordering
 Lets say we have n objects and we have to choose p:  
-with replacement, order matters:  
+#### with replacement, order matters:  
 ![\Large n^{k}](https://latex.codecogs.com/svg.latex?\Large&space;n^{p})  
-without replacement, order matters:  
+#### without replacement, order matters:  
 ![\Large \frac{n!}{(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-p)!}) 
-without replacement, order does not matter:  
+#### without replacement, order does not matter:  
 ![\Large \frac{n!}{p!(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{p!(n-p)!})  
-with replacement, order does not matter:  
-  
+#### with replacement, order does not matter:  
+![\Large \binom{n+k-1}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n+k-1}{k})   
+
 
 
 ## Probability
