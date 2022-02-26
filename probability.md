@@ -64,8 +64,10 @@ There is one more way to think about this. out of k persons, first person can  h
 second can have his birthday on one of 364 days. and so on  
 number of favorable outcomes = 365*364*363...(365-k+1)  
 It is equivalent to:  
-![\Large \frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!})  
-
+![\Large \frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!})
+    
+Putting all of above together:  
+P(A) = 1 - ![\Large \frac{365\times\364}{365^{k}}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{365\times\364}{365^{k}})
   
 
 
