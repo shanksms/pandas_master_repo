@@ -5,8 +5,8 @@
 
 ## Counting
 ### choose  without ordering
-Imagine you have to choose k people out n. In this case order does not matter. Below formulae can be used:  
-![\Large \binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k})   
+Imagine you have to choose p people out n. In this case order does not matter. Below formula can be used:  
+![\Large \binom{n}{p}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{p})   
 It is pronounced as n choose k. It is written as following as fractions:    
 ![\Large \frac{n!}{p!(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{p!(n-p)!}) 
 ### Choose with ordering
