@@ -10,7 +10,7 @@ Imagine you have to choose k people out n. In this case order does not matter. B
 It is pronounced as n choose k
 ### Choose with ordering
 Imagine you have n letters and you have to choose k letter. In this case ordering does matter (AB is different from BA)    
-![\Large \binom{n}{k} {!k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k} {!k}) 
+![\Large \frac{!n}{!p!n-p}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{!n}{!p!n-p}) 
 
 
 ## Probability
