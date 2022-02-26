@@ -62,7 +62,7 @@ Now let us figure out count of favorable outcomes. It should be equal to:
 This case is exactly similar to the case "without replacement, order matters"  
 There is one more way to think about this. out of k persons, first person can  have his birthday on one of 365 days,  
 second can have his birthday on one of 364 days. and so on  
-number of favorable outcomes = A^c
+number of favorable outcomes = A^c  
 ![\Large A^c = 365\times364\times....\times(365-k+1)](https://latex.codecogs.com/svg.latex?\Large&space;A^c=365\times364\times....\times(365-k+1))
 
 It is equivalent to:  
