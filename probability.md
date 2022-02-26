@@ -67,7 +67,7 @@ It is equivalent to:
 ![\Large \frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!})
     
 Putting all of above together:  
-P(A) = 1 - ![\Large \frac{365\times\364\times(365-k+1)}{365^{k}}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{365\times\364\times(365-k+1)}{365^{k}})
+![\Large P(A) = 1 - \frac{365\times\364\times(365-k+1)}{365^{k}}](https://latex.codecogs.com/svg.latex?\Large&space;P(A)=1-\frac{365\times\364\times(365-k+1)}{365^{k}})
   
 
 
