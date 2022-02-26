@@ -46,8 +46,7 @@ Given a group of k people, find out probability of two people sharing birthday. 
 We will apply naive probability definition. In this is case it is easier to compute the complement.  
 So, now problem is to find out probability of two people not sharing birthday.  
 Going by the definition, in this case:  
-count of positive outcomes:  
-![\Large 365^{k}](https://latex.codecogs.com/svg.latex?\Large&space;n^{p})  
+count of positive outcomes: ![\Large 365^{k}](https://latex.codecogs.com/svg.latex?\Large&space;365^{k})  
 
 
 
