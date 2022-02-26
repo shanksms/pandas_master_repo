@@ -6,12 +6,12 @@
 ## Counting
 ### choose  without ordering
 Imagine you have to choose k people out n. In this case order does not matter. Below formulae can be used:  
-![\Large \binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k}) 
-It is pronounced as n choose k. It is written as following as fractions:  
+![\Large \binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k})   
+It is pronounced as n choose k. It is written as following as fractions:    
 ![\Large \frac{n!}{p!n-p!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{!n}{p!n-p!}) 
 ### Choose with ordering
-Imagine you have n letters and you have to choose k letter. In this case ordering does matter (AB is different from BA)    
-![\Large \frac{n!}{n-p!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{!n}{n-p!}) 
+Imagine you have n letters and you have to choose k letter. In this case ordering does matter (AB is different from BA)      
+![\Large \frac{n!}{(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{!n}{(n-p!)}) 
 
 
 ## Probability
