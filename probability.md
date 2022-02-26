@@ -59,7 +59,13 @@ Therefore, there will be 365 branches springing out from each of the 365 root no
 Now let us figure out count of favorable outcomes. It should be equal to:  
 ![\Large \frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!})  
 
-This case is exactly similar to the case "without replacement, order matters"
+This case is exactly similar to the case "without replacement, order matters"  
+There is one more way to think about this. out of k persons, first person can  have his birthday on one of 365 days,  
+second can have his birthday on one of 364 days. and so on  
+number of favorable outcomes = 365*364*363...(365-k+1)  
+It is equivalent to:  
+![\Large \frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!})  
+
   
 
 
