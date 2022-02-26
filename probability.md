@@ -5,7 +5,8 @@
 
 ## Counting
 ### choose with without ordering
-$\binom{n}{k}$
+![\Large \binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k}) 
+
 
 ## Probability
 ### Sample space
