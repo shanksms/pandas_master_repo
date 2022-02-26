@@ -13,6 +13,10 @@ It is pronounced as n choose k. It is written as following as fractions:
 Imagine you have n letters and you have to choose k letter. In this case ordering does matter (AB is different from BA)      
 ![\Large \frac{n!}{(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{!n}{(n-p)!}) 
 
+### replacement and ordering
+Lets say we have n objects and we have to choose k:  
+with replacement, order does not matter:  
+![\Large ^{nk}](https://latex.codecogs.com/svg.latex?\Large&space;^{nk}) 
 
 ## Probability
 ### Sample space
