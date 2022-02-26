@@ -41,5 +41,14 @@ Assumptions:
 
 Remember that you need strong justification to use naive definition of probability.
 
+### Birthday problem
+Given a group of k people, find out probability of two people sharing birthday. exclude leap year from the sample space.  
+We will apply naive probability definition. In this is case it is easier to compute the complement.  
+So, now problem is to find out probability of two people not sharing birthday.  
+Going by the definition, in this case:  
+count of positive outcomes:  
+![\Large 365^{k}](https://latex.codecogs.com/svg.latex?\Large&space;n^{p})  
+
+
 
 
