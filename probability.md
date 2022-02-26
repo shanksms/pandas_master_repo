@@ -45,12 +45,16 @@ Remember that you need strong justification to use naive definition of probabili
 Given a group of k people, find out probability of two people sharing birthday. exclude leap year from the sample space.  
 We will apply naive probability definition. In this is case it is easier to compute the complement.  
 So, now problem is to find out probability of two people not sharing birthday.  
-Going by the definition, in this case:  
-count of positive outcomes: ![\Large 365^{k}](https://latex.codecogs.com/svg.latex?\Large&space;365^{k})  
+Going by the definition, in this case:    
+#### count of positive outcomes:
+![\Large 365^{k}](https://latex.codecogs.com/svg.latex?\Large&space;365^{k})  
 Let us take example of k=2. So, first person can have birthday as any of the 365 days. Lets imagine a tree with 365 root nodes.  
 These 365 root nodes are the possibilities of birthday of first person. Second person can also have birthday as any of the 365 days.  
-Therefore, there will be 365 branches springing out from each of the 365 root nodes.    
-Total number of positive outcomes = ![\Large \sum_{0}^{365}365](https://latex.codecogs.com/svg.latex?\Large&space;\sum_{0}^{365}365)   
+Therefore, there will be 365 branches springing out from each of the 365 root nodes. 
+#### Total number of positive outcomes =    
+![\Large \sum_{1}^{365}365](https://latex.codecogs.com/svg.latex?\Large&space;\sum_{1}^{365}365)  
+#### Which is nothing but:  
+![\Large 365^{2}](https://latex.codecogs.com/svg.latex?\Large&space;365^{2}) 
 
 
 
