@@ -51,10 +51,17 @@ Going by the definition, in this case:
 Let us take example of k=2. So, first person can have birthday as any of the 365 days. Lets imagine a tree with 365 root nodes.  
 These 365 root nodes are the possibilities of birthday of first person. Second person can also have birthday as any of the 365 days.  
 Therefore, there will be 365 branches springing out from each of the 365 root nodes. 
-#### Total number of positive outcomes     
+#### count of positive outcomes:       
 ![\Large \sum_{1}^{365}365](https://latex.codecogs.com/svg.latex?\Large&space;\sum_{1}^{365}365)  
-#### Which is nothing but  
+#### Which is nothing but:   
 ![\Large 365^{2}](https://latex.codecogs.com/svg.latex?\Large&space;365^{2})  
+
+Now let us figure out count of favorable outcomes. It should be equal to:  
+![\Large \frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!})  
+
+This case is exactly similar to the case "without replacement, order matters"
+  
+
 
 
 
