@@ -4,8 +4,13 @@
 
 
 ## Counting
-### choose with without ordering
+### choose  without ordering
+Imagine you have to choose k people out n. In this case order does not matter. Below formulae can be used:  
 ![\Large \binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k}) 
+It is pronounced as n choose k
+### Choose with ordering
+![\Large \Perm{n}{k}=\frac{n!}{(n-k)!}](https://latex.codecogs.com/svg.latex?\Large&space;\Perm{n}{k}=\frac{n!}{(n-k)!}) 
+
 
 
 ## Probability
