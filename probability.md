@@ -54,7 +54,7 @@ Therefore, there will be 365 branches springing out from each of the 365 root no
 #### Total number of positive outcomes     
 ![\Large \sum_{1}^{365}365](https://latex.codecogs.com/svg.latex?\Large&space;\sum_{1}^{365}365)  
 #### Which is nothing but  
-![\Large 365^{2}](https://latex.codecogs.com/svg.latex?\Large&space;365^{2})  
+![\Large 365^{k}](https://latex.codecogs.com/svg.latex?\Large&space;365^{k})  
 
 
 
