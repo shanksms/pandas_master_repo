@@ -16,7 +16,7 @@ Imagine you have n letters and you have to choose k letter. In this case orderin
 ### replacement and ordering
 Lets say we have n objects and we have to choose k:  
 with replacement, order does not matter:  
-![\Large ^{nk}](https://latex.codecogs.com/svg.latex?\Large&space;^{nk}) 
+![\Large n^{k}](https://latex.codecogs.com/svg.latex?\Large&space;n^{k}) 
 
 ## Probability
 ### Sample space
