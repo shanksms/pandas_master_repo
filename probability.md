@@ -24,7 +24,12 @@ Lets say we have n objects and we have to choose p:
 #### with replacement, order does not matter:  
 ![\Large \binom{n+k-1}{k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n+k-1}{k})   
 
-
+### Arrange letters
+Suppose you have n letters. How many ways you can arrange them?  
+To solve this, imagine you have n positions. there n possible letters can come on the first position. on the second position  
+n-1 letters can come. and so on.
+![\Large number_of_ways = \times(n)\times(n-1)....\times(1)](https://latex.codecogs.com/svg.latex?\Large&space;number_of_ways=\times(n)\times(n-1)....\times(1))
+  
 
 ## Probability
 ### Sample space
