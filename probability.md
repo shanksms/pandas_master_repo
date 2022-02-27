@@ -118,7 +118,10 @@ It is equivalent to:
 Putting all of above together:  
 ![\Large P(A) = 1 - \frac{365\times\364\times....\times(365-k+1)}{365^{k}}](https://latex.codecogs.com/svg.latex?\Large&space;P(A)=1-\frac{365\times\364\times...\times(365-k+1)}{365^{k}})
   
-
+### Non naive definition of probability.
+A probability sample space consists of S and P where S is a sample space and P is a function which takes A as an event:  
+\subseteq	
+![\Large A\subseteqS](https://latex.codecogs.com/svg.latex?\Large&space;A\subseteqS)
 
 
 
