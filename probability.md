@@ -82,7 +82,7 @@ To understand, right side of the equality, let us assume two rooms having m and 
 * Pick 0 from first room and k from second room. By application of multiplication rule, total number of ways is: n choose 0 multiplied by m choose k
 * Pick 1 from first room and k-1 from second room. By application of multiplication rule, total number of ways is: n choose 1 multiplied by m choose k-1
 * Pick j from first room and k-j from second room. By application of multiplication rule, total number of ways is: n choose  multiplied by m choose k-j
-............................................................................................................................  
+* ............................................................................................................................  
 * Pick k from first room and 0 from second room. By application of multiplication rule, total number of ways is: n choose k multiplied by m choose 0
 
 All the above have to be added since they are disjoint set. Adding them will give you right side of the equality.  
