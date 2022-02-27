@@ -26,10 +26,11 @@ Lets say we have n objects and we have to choose p:
 
 ### Arrange letters
 Suppose you have n letters. How many ways you can arrange them?  
-To solve this, imagine you have n positions. there n possible letters can come on the first position. on the second position  
+To solve this, imagine you have n positions. n possible letters can come on the first position. on the second position  
 n-1 letters can come. and so on. Following is the number of ways:  
 ![\Large (n)\times(n-1)....\times(1)](https://latex.codecogs.com/svg.latex?\Large&space;(n)\times(n-1)....\times(1))  
-This is nothing by factorial(n)
+This is nothing but factorial(n)  
+<br>
   
 
 ## Probability
@@ -46,6 +47,11 @@ Assumptions:
 2. Finite sample space  
 
 Remember that you need strong justification to use naive definition of probability.
+
+### Story Proofs
+it is proof by interpretation, rather than algebra or Calculus.  
+Lets proof following equality:  
+![\Large \binom{n}{k}=\binom{n}{n-k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k}=\binom{n}{n-k})   
 
 ### Birthday problem
 Given a group of k people, find out probability of two people sharing birthday. exclude leap year from the sample space.  
