@@ -75,7 +75,7 @@ Which is nothing but:
 ![\Large n\times\binom{n-1}{k-1}](https://latex.codecogs.com/svg.latex?\Large&space;n\times\binom{n-1}{k-1})  
   
   
-Let us story proof another equality:
+Let us story proof another equality:  
 ![\Large \binom{m+n}{k}=\sum_{0}^{k}\binom{m}{j}\times\binom{n}{k-j}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{m+n}{k}=\sum_{0}^{k}\binom{m}{j}\times\binom{n}{k-j})  
 
 
