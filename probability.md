@@ -120,8 +120,7 @@ Putting all of above together:
   
 ### Non naive definition of probability.
 A probability sample space consists of S and P where S is a sample space and P is a function which takes A as an event:  
-\subseteq	
-![\Large A \subseteq S](https://latex.codecogs.com/svg.latex?\Large&space;{A}\subseteq{S})
+![\Large {A}\subseteq{S}](https://latex.codecogs.com/svg.latex?\Large&space;{A}\subseteq{S})
 
 
 
