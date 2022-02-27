@@ -53,6 +53,18 @@ it is proof by interpretation, rather than algebra or Calculus.
 Lets proof following equality:  
 ![\Large \binom{n}{k}=\binom{n}{n-k}](https://latex.codecogs.com/svg.latex?\Large&space;\binom{n}{k}=\binom{n}{n-k})   
 
+Suppose there are 10 players and you would like to form two teams - one having 6 members other having 4 members.  
+There are n choose 6 ways you can make team one. Every time you are making team one, 4 left members will become part of team 2. So in this case answer is n choose 6
+Now, lets flip the making of team.  
+There are 4 ways you can make team 2. Every time you are making team 2, 6 left members will become part of team 1. So the answer is n chooose 4.  
+This proves that:  
+n choose 4 = n choose 6  
+<br>
+Let us prove another equality:  
+![\Large n\times\binom{n-1}{k-1}=k\times\binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;n\times\binom{n-1}{k-1}=k\times\binom{n}{k})   
+
+
+
 ### Birthday problem
 Given a group of k people, find out probability of two people sharing birthday. exclude leap year from the sample space.  
 We will apply naive probability definition. In this is case it is easier to compute the complement.  
