@@ -27,8 +27,9 @@ Lets say we have n objects and we have to choose p:
 ### Arrange letters
 Suppose you have n letters. How many ways you can arrange them?  
 To solve this, imagine you have n positions. there n possible letters can come on the first position. on the second position  
-n-1 letters can come. and so on.
-![\Large number_of_ways = \times(n)\times(n-1)....\times(1)](https://latex.codecogs.com/svg.latex?\Large&space;number_of_ways=\times(n)\times(n-1)....\times(1))
+n-1 letters can come. and so on. Following is the number of ways:  
+![\Large (n)\times(n-1)....\times(1)](https://latex.codecogs.com/svg.latex?\Large&space;(n)\times(n-1)....\times(1))  
+This is nothing by factorial(n)
   
 
 ## Probability
