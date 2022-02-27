@@ -120,7 +120,18 @@ Putting all of above together:
   
 ### Non naive definition of probability.
 A probability sample space consists of S and P where S is a sample space and P is a function which takes A as an event:  
-![\Large {A}\subseteq{S}](https://latex.codecogs.com/svg.latex?\Large&space;{A}\subseteq{S})
+![\Large {A}\subseteq{S}](https://latex.codecogs.com/svg.latex?\Large&space;{A}\subseteq{S})  
+and  
+P(A) = [0, 1] This means, P(A) can assume values between 0 and 1.  
+There are two axioms:  
+1. P(Ø) = 0 and P(S) = 1 where Ø represent empty set. it also means impossible event. S is full sample space.  
+2.  Below is the second axiom:  
+![\Large \cup_{n=1}^{∞}F_{n}](https://latex.codecogs.com/svg.latex?\Large&space;\cup_{n=1}^{∞}F_{n})
+
+
+
+
+
 
 
 
