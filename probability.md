@@ -62,7 +62,15 @@ n choose 4 = n choose 6
 <br>
 Let us prove another equality:  
 ![\Large n\times\binom{n-1}{k-1}=k\times\binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;n\times\binom{n-1}{k-1}=k\times\binom{n}{k})   
-
+Let us say, there are n people and you want to make a club of k people with 1 person designated as president.  
+One way to think about it is, first choose k people from n people. Now, each group, one of the member can be designated as president. So, that gives k possibilities for each group.
+This is an application of multiplication rule.    
+![\Large k\times\binom{n}{k}](https://latex.codecogs.com/svg.latex?\Large&space;k\times\binom{n}{k})
+There way to solve this problem is to designate each one of the n person as president. Now, we are left with n-1 people and we have to choose k-1 people from n-1.  
+Let us represent it mathematically:  
+![\Large \sum_{1}^{n}\binom{n-1}{k-1}](https://latex.codecogs.com/svg.latex?\Large&space;\sum_{1}^{n}\binom{n-1}{k-1})  
+Which is nothing but:  
+![\Large n\times\binom{n-1}{k-1}](https://latex.codecogs.com/svg.latex?\Large&space;n\times\binom{n-1}{k-1})  
 
 
 ### Birthday problem
