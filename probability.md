@@ -127,7 +127,7 @@ There are two axioms:
 1. P(Ø) = 0 and P(S) = 1 where Ø represent empty set. it also means impossible event. S is full sample space.  
 2.  Below is the second axiom:  
 ![\Large P(\cup_{n=1}^{N}A_{n})=\sum_{n=1}^{N}P(An)](https://latex.codecogs.com/svg.latex?\Large&space;P(\cup_{n=1}^{N}A_{n})=\sum_{n=1}^{N}P(A_{n})) if A1, A2.. are disjoint (non overlapping)  
-Please, N can also be ∞
+Please note, N can also be ∞
 
 
 
