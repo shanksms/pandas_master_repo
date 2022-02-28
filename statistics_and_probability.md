@@ -1,6 +1,7 @@
 # Important Probability concepts
 ## resources
 [Harvard lectures playlist] (https://www.youtube.com/watch?v=KbB0FjPg0mw&list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo)
+[Oreilly video course] (https://learning.oreilly.com/videos/mastering-probability-and/9781801075091/9781801075091-video3_5/)
 
 
 ## Counting
@@ -129,6 +130,13 @@ There are two axioms:
 ![\Large P(\cup_{n=1}^{N}A_{n})=\sum_{n=1}^{N}P(An)](https://latex.codecogs.com/svg.latex?\Large&space;P(\cup_{n=1}^{N}A_{n})=\sum_{n=1}^{N}P(A_{n})) if A1, A2.. are disjoint (non overlapping)  
 Please note, N can also be ∞
 
+
+## Statistics
+### Power sets
+Suppose A={1, 2, 3} is a set. Its power sets is defined as all the possible sets which one can make from the elements of
+set A.  
+Total number of possible sets (including blank set) is 8 which 2**n.  
+Possibly this is the reason it is called power sets.
 
 
 
