@@ -11,10 +11,10 @@ Imagine you have to choose p people out n. In this case order does not matter. B
 It is pronounced as n choose k. It is written as following as fractions:    
 ![\Large \frac{n!}{p!(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{p!(n-p)!}) 
 ### Choose with ordering
-Imagine you have n letters and you have to choose k letter. In this case ordering does matter (AB is different from BA)      
+Imagine you have n letters and you have to arrange (permutate) p letters. In this case ordering does matter (AB is different from BA)      
 ![\Large \frac{n!}{(n-p)!}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-p)!}) 
 
-### replacement and ordering
+### General formulae for counting
 Lets say we have n objects and we have to choose p:  
 #### with replacement, order matters:  
 ![\Large n^{k}](https://latex.codecogs.com/svg.latex?\Large&space;n^{p})  
