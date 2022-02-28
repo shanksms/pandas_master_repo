@@ -132,11 +132,22 @@ Please note, N can also be ∞
 
 
 ## Statistics
+
 ### Power sets
 Suppose A={1, 2, 3} is a set. Its power sets is defined as all the possible sets which one can make from the elements of
 set A.  
 Total number of possible sets (including blank set) is 8 which 2**n.  
 Possibly this is the reason it is called power sets.
+### Set operations
+1. Union
+2. Intersection
+3. Difference 
+4. Complement. Complement is Universal Set minus A where A is a set inside the universal set.  
+
+### Demorgan law
+![\Large (A\sqcupB)^c](https://latex.codecogs.com/svg.latex?\Large&space;(A\sqcupB)^c)
+
+
 
 
 
