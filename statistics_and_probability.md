@@ -146,6 +146,8 @@ Possibly this is the reason it is called power sets.
 
 ### Demorgan law
 ![\Large ({A}\cap{B})^{c}={A}^{c}\cup{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cap{B})^{c}={A}^{c}\cup{B}^{c})
+![\Large ({A}\cup{B})^{c}={A}^{c}\cap{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cup{B})^{c}={A}^{c}\cap{B}^{c})
+
 
 
 
