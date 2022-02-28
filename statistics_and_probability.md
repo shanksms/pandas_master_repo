@@ -1,4 +1,4 @@
-# Important Probability concepts
+# Important Stats and Probability concepts
 ## resources
 [Harvard lectures playlist] (https://www.youtube.com/watch?v=KbB0FjPg0mw&list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo)
 [Oreilly video course] (https://learning.oreilly.com/videos/mastering-probability-and/9781801075091/9781801075091-video3_5/)
