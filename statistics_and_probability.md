@@ -145,7 +145,7 @@ Possibly this is the reason it is called power sets.
 4. Complement. Complement is Universal Set minus A where A is a set inside the universal set.  
 
 ### Demorgan law
-![\Large ({A}\cap{B})](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cap{B}))
+![\Large ({A}\cap{B})_{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cap{B})_{c})
 
 
 
