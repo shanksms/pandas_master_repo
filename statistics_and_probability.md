@@ -228,6 +228,23 @@ It is important to note that conditional probability itself is a probability mea
 Axiom 1: For any event A, P(A|B)≥0.  
 Axiom 2: Conditional probability of B given B is 1, i.e., P(B|B)=1.  
 Axiom 3: If A1,A2,A3,⋯ are disjoint events, then P(A1∪A2∪A3⋯|B)=P(A1|B)+P(A2|B)+P(A3|B)+⋯.  
+
+#### solved problems on conditional probability
+##### roll die
+I roll a fair die twice and obtain two numbers X1= result of the first roll and X2= result of the second roll.  
+Given that I know X1+X2=7, what is the probability that X1=4 or X2=4?  
+S = {(11), (12), ......(66)}  (total 36)  
+A = {(16), (25), (34), (43), (52), (61)}
+C = {(14), (24), (34), (44), (54), (64), (41), (42), (43}, (45), (46))
+
+P(A) = 6 / 36 = 1 / 6  
+P(C) = 11 / 36  
+P(C∩A) =  2 / 36  
+P(C | A) = P(C∩A) / P(A) = 2 / 6 = 1 / 3  
+
+
+  
+
     
  
   
