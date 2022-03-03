@@ -162,17 +162,30 @@ Please note, P(1) and P({1}) are used interchangeably. Although P({1})  is the c
 #####  For any event A, P(Ac)=1−P(A).
 P(S) = 1  ( using axiom 1 )  
   
-![\Large P({A}\cup{A}^c) = 1](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{A}^c)=1)  (By the definition of complement)  
-![\Large P({A}) + P({A}^c) = 1](https://latex.codecogs.com/svg.latex?\Large&space;P({A})+P({A}^c)=1)  
-    
-  
+![\Large P({A}\cup{A}^c) = 1](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{A}^c)=1)     (By the definition of complement)    
+![\Large P({A}) + P({A}^c) = 1](https://latex.codecogs.com/svg.latex?\Large&space;P({A})+P({A}^c)=1)    (By axiom#2)  
   
 
-2. The probability of the empty set is zero, i.e., P(∅)=0.
-3. For any event A, P(A)≤1.
-4. P(A−B)=P(A)−P(A∩B).
-5. P(A∪B)=P(A)+P(B)−P(A∩B), (inclusion-exclusion principle for n=2).
-6. If A⊂B then P(A)≤P(B) 
+##### The probability of the empty set is zero, i.e., P(∅)=0  
+P(S) = 1  
+P(S∪S^c) = 1 (by definition of complement)  
+P(S) + P(S^c) = 1  
+P(S) +  P(∅) = 1  
+1 + P(∅) = 1  
+P(∅) = 0  
+  
+##### For any event A, P(A)≤1   
+TBD
+#####  P(A−B)=P(A)−P(A∩B)
+P(A−B)=P(A - (A∩B))  (using Venn diagram)  
+P(A−B)=P(A) - P(A∩B) (axiom#2)  
+
+##### P(A∪B)=P(A)+P(B)−P(A∩B), (inclusion-exclusion principle for n=2).
+TBD
+##### If A⊂B then P(A)≤P(B)
+TBD
+
+ 
 
   
 
