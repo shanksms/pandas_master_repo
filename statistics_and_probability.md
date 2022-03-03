@@ -151,7 +151,11 @@ Possibly this is the reason it is called power sets.
 
 ###  Distributive law
 ![\Large {A}\cap({B}\cup{C})=({A}\cap{B})\cup({A}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;{A}\cap({B}\cup{C})=({A}\cap{B})\cup({A}\cap{C}))  
-![\Large {A}\cup({B}\cap{C})=({A}\cup{B})\cap({A}\cup{C})](https://latex.codecogs.com/svg.latex?\Large&space;{A}\cup({B}\cap{C})=({A}\cup{B})\cap({A}\cup{C}))  
+![\Large {A}\cup({B}\cap{C})=({A}\cup{B})\cap({A}\cup{C})](https://latex.codecogs.com/svg.latex?\Large&space;{A}\cup({B}\cap{C})=({A}\cup{B})\cap({A}\cup{C}))    
+
+### Inclusion-Exclusion principle
+The cardinality of a set (A) is denoted by |A|  
+1. ![\Large |{A}\cup{B}|=|{A}| + |{B}| - |{A}\cap{B}|](https://latex.codecogs.com/svg.latex?\Large&space;|{A}\cup{B}|=|{A}|+|{B}|-|{A}\cap{B}|)  
 
 ### Random experiment
 A random experiment is an experiment in which outcome is not known in advance.  
