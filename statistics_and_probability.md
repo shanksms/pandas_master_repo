@@ -155,7 +155,9 @@ Possibly this is the reason it is called power sets.
 
 ### Inclusion-Exclusion principle
 The cardinality of a set (A) is denoted by |A|  
-1. ![\Large |{A}\cup{B}|=|{A}| + |{B}| - |{A}\cap{B}|](https://latex.codecogs.com/svg.latex?\Large&space;|{A}\cup{B}|=|{A}|+|{B}|-|{A}\cap{B}|)  
+![\Large |{A}\cup{B}|=|{A}| + |{B}| - |{A}\cap{B}|](https://latex.codecogs.com/svg.latex?\Large&space;|{A}\cup{B}|=|{A}|+|{B}|-|{A}\cap{B}|)  
+![\Large |{A}\cup{B}\cup|=|{A}| + |{B}| + |{C}|- |{A}\cap{B}| - |{A}\cap{C}| - |{B}\cap{C}| + |{A}\cap{B}\cap{C}|](https://latex.codecogs.com/svg.latex?\Large&space;|{A}\cup{B}\cup|=|{A}|+|{B}|+|{C}|-|{A}\cap{B}|-|{A}\cap{C}|-|{B}\cap{C}|+|{A}\cap{B}\cap{C}|)    
+
 
 ### Random experiment
 A random experiment is an experiment in which outcome is not known in advance.  
