@@ -149,6 +149,9 @@ Possibly this is the reason it is called power sets.
 ![\Large ({A}\cap{B})^{c}={A}^{c}\cup{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cap{B})^{c}={A}^{c}\cup{B}^{c})  
 ![\Large ({A}\cup{B})^{c}={A}^{c}\cap{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cup{B})^{c}={A}^{c}\cap{B}^{c})  
 
+###  Distributive law
+![\Large {A}\cap({B}\cup{C})=({A}\cap{B})\cup({A}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;{A}\cap({B}\cup{C})=({A}\cap{B})\cup({A}\cap{C}))  
+![\Large ({A}\cup{B})^{c}={A}^{c}\cap{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cup{B})^{c}={A}^{c}\cap{B}^{c})  
 
 ### Random experiment
 A random experiment is an experiment in which outcome is not known in advance.  
