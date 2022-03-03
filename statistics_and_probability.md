@@ -160,9 +160,12 @@ Please note, P(1) and P({1}) are used interchangeably. Although P({1})  is the c
 
 #### Using the axioms of probability, prove the following:
 #####  For any event A, P(Ac)=1−P(A).
-P(S) = 1  
+P(S) = 1  ( using axiom 1 )  
 By the definition of complement, we can write:    
-![\Large {A}\cup{A}^c = 1](https://latex.codecogs.com/svg.latex?\Large&space;{A}\cup{A}^c=1)  
+![\Large P({A}\cup{A}^c) = 1](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{A}^c=1))  
+![\Large P({A}) + P({A}^c) = 1](https://latex.codecogs.com/svg.latex?\Large&space;P({A})+P({A}^c)=1))  
+    
+  
   
 
 2. The probability of the empty set is zero, i.e., P(∅)=0.
