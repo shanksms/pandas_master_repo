@@ -185,9 +185,64 @@ TBD
 ##### If A⊂B then P(A)≤P(B)
 TBD
 
+##### Rain problem
+Suppose we have the following information:
+
+There is a 60 percent chance that it will rain today.
+There is a 50 percent chance that it will rain tomorrow.
+There is a 30 percent chance that it does not rain either day.  
+  
+Find the following probabilities:
+###### The probability that it will rain today or tomorrow.
+TBD
+###### The probability that it will rain today and tomorrow.
+TBD
+###### The probability that it will rain today but not tomorrow.
+TBD
+###### The probability that it either will rain today or tomorrow, but not both.
+TBD 
+
+
+### Conditional probability
+Essentially, conditional probability tries to solve problem, "How do you update probabilities of events once you have new information"  
+I roll a fair die. Let A be the event that the outcome is an odd number, i.e., A={1,3,5}. Also let B be the event that the  
+outcome is less than or equal to 3, i.e., B={1,2,3}. What is the probability of A, P(A)? What is the probability of A given B, P(A|B)?  
+A = {1, 3, 5}  
+B = {1, 2, 3}  
+S = {1, 2, 3, 4, 5, 6}    
+P(A) = |A| / |S|  = 3 / 6 = 1 / 2  
+
+Now, let's find the conditional probability of A given that B occurred. If we know B has occurred, the outcome must be among {1,2,3}.  
+For A to also happen the outcome must be in A∩B={1,3}. Since all die rolls are equally likely, we argue that P(A|B) must be equal to  
+P(A|B)=|A∩B| / |B|=2 / 3  
+Now, let us generalize the above statement:  
+P(A|B) = ( |A∩B| / |S| ) / (|B| / |S|)  
+P(A|B) = P(A∩B) / P(B)  when P(B) > 0  
+
+Here is the intuition behind the formula: When we know that B has occurred, our sample space has reduced to B. Now, only way that A can occur when outcome belongs to set A ∩ B.  
+Therefore, We divide P(A∩B) by P(B), so that the conditional probability of the new sample space becomes 1, i.e.,  
+P(B|B)=P(B∩B) / P(B)=1  
+
+It is important to note that conditional probability itself is a probability measure, so it satisfies probability axioms. In particular,  
+
+Axiom 1: For any event A, P(A|B)≥0.  
+Axiom 2: Conditional probability of B given B is 1, i.e., P(B|B)=1.  
+Axiom 3: If A1,A2,A3,⋯ are disjoint events, then P(A1∪A2∪A3⋯|B)=P(A1|B)+P(A2|B)+P(A3|B)+⋯.  
+    
  
+  
+
+
 
   
+  
+
+
+
+
+
+  
+
 
 
 
