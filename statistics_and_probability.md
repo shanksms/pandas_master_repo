@@ -2,6 +2,7 @@
 ## resources
 [Harvard lectures playlist] (https://www.youtube.com/watch?v=KbB0FjPg0mw&list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo)
 [Oreilly video course] (https://learning.oreilly.com/videos/mastering-probability-and/9781801075091/9781801075091-video3_5/)
+[Probability course] (https://www.probabilitycourse.com/)
 
 
 ## Counting
@@ -145,8 +146,90 @@ Possibly this is the reason it is called power sets.
 4. Complement. Complement is Universal Set minus A where A is a set inside the universal set.  
 
 ### Demorgan law
-![\Large ({A}\cap{B})^{c}={A}^{c}\cup{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cap{B})^{c}={A}^{c}\cup{B}^{c})
-![\Large ({A}\cup{B})^{c}={A}^{c}\cap{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cup{B})^{c}={A}^{c}\cap{B}^{c})
+![\Large ({A}\cap{B})^{c}={A}^{c}\cup{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cap{B})^{c}={A}^{c}\cup{B}^{c})  
+![\Large ({A}\cup{B})^{c}={A}^{c}\cap{B}^{c}](https://latex.codecogs.com/svg.latex?\Large&space;({A}\cup{B})^{c}={A}^{c}\cap{B}^{c})  
+
+
+### Random experiment
+A random experiment is an experiment in which outcome is not known in advance.  
+Toss of a fair coin may give: {H, T}  
+
+#### Sample Space
+Set of all outcomes is known as sample space.  
+1. You toss a coin. In this experiment, sample space:  
+S={H, T}
+2. You toss two coins. In this experiment, sample space:
+S = {HH, HT, TH, TT}  
+To put it in word, when you toss a coin, you could get either of H or T. So sample space is {H, T}.  
+3. You keep tossing a coin until you get H.  In this experiment, sample space could be:  
+S = {H, TH, TTTTH, ....}. in this case cardinality of the set is infinite. It is not countable set.  
+
+#### Event
+Event is a subset of sample space.
+Every subset if sample space is Event including empty set. In other words, Event is a member of Power set of the sample space.  
+Let us take an experiment in which we roll two six sided fair dices.  
+S = {(1, 1), (1, 2), (1, 3), .......(6, 6)}
+Cardinality of S = |S| = 36 = 6 ^ 2  
+This can be derived from multiplication rule. Assume, there are 6 roots, numbering 1 to 6. Now from each root, 6 branches numbering 1 to 6, can be taken out.  
+number of roots are the possibilities i.e. 36
+    1
+  /
+1 - 2
+    .
+    .
+  \
+    6
+    <br>
+    1
+  /
+2 - 2
+    .
+    .
+  \
+    6
+    <br>
+    1
+  /
+6 - 2
+    .
+    .
+  \
+    6
+ 
+Let us say you are interested in an event where sum of numbers on dice is an even number.  
+E = {(1,1), (1, 3), (1, 5), (2, 2), (2, 4), (2, 6), (3, 1), (3, 3), (3, 5), (4, 2), (4, 4), (4, 6), (5, 1), (5, 3), (5, 5), (6, 2), (6, 4), (6, 6)}
+Cardinality of E = |E| = 18  
+This can, again, be derived from multiplication rule.  
+
+    2
+  /
+2 - 4
+    
+  \
+    6
+    <br>
+    
+    2
+  /
+4 - 4
+    
+  \
+    6
+    <br>
+    2
+  /
+6 - 4
+    
+  \
+    6
+
+
+
+  
+
+
+
+
 
 
 
