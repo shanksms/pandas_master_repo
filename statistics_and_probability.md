@@ -129,7 +129,53 @@ There are two axioms:
 1. P(Ø) = 0 and P(S) = 1 where Ø represent empty set. it also means impossible event. S is full sample space.  
 2.  Below is the second axiom:  
 ![\Large P(\cup_{n=1}^{N}A_{n})=\sum_{n=1}^{N}P(An)](https://latex.codecogs.com/svg.latex?\Large&space;P(\cup_{n=1}^{N}A_{n})=\sum_{n=1}^{N}P(A_{n})) if A1, A2.. are disjoint (non overlapping)  
-Please note, N can also be ∞
+Please note, N can also be ∞  
+in other words:  
+P(A1∪A2∪A3⋯)=P(A1)+P(A2)+P(A3)+⋯  
+Alternate notation:  
+P(A∩B)=P(A and B)=P(A,B)  
+P(A∪B)=P(A or B)  
+### Finding Probabilities
+Suppose that we are given a random experiment with a sample space S. To find the probability of an event,  
+there are usually two steps: first, we use the specific information that we have about the random experiment. Second,  
+we use the probability axioms. Let's look at an example. Although this is a simple example and you might be tempted to  
+write the answer without following the steps, we encourage you to follow the steps.    
+  
+
+### Solved problems:
+#### Presidential election
+In a presidential election, there are four candidates. Call them A, B, C, and D. Based on our polling analysis,  
+we estimate that A has a 20 percent chance of winning the election, while B has a 40 percent chance of winning. What is  
+the probability that A or B win the election?  
+P(A) = 0.2, P(B) = 0.4  
+We have to find out P(A∪B).   
+Since P(A) and P(B) are disjoint events (only A or B can win the same election).
+P(A∪B) = P(A) + P(B) = 0.2 + 0.4 = 0.6  
+#### Roll a die
+You roll a fair die. What is the probability of E={1,5}?  
+P(E) = 2/ 6 = 1 / 3  
+Let us solve this using probability axiom. Since both events {1} and {5} are disjoint events.    
+P({1∪5}) = P({1}) ∪ P({5}) =  1 / 6 + 1 / 6 = 2 / 3  
+Please note, P(1) and P({1}) are used interchangeably. Although P({1})  is the correct notation.   
+
+#### Using the axioms of probability, prove the following:
+#####  For any event A, P(Ac)=1−P(A).
+P(S) = 1  
+By the definition of complement, we can write:    
+![\Large {A}\cup{A}^c = 1](https://latex.codecogs.com/svg.latex?\Large&space;{A}\cup{A}^c=1)  
+  
+
+2. The probability of the empty set is zero, i.e., P(∅)=0.
+3. For any event A, P(A)≤1.
+4. P(A−B)=P(A)−P(A∩B).
+5. P(A∪B)=P(A)+P(B)−P(A∩B), (inclusion-exclusion principle for n=2).
+6. If A⊂B then P(A)≤P(B) 
+
+  
+
+
+
+
 
 
 ## Statistics
@@ -164,6 +210,10 @@ Following is inclusion and exclusion principle.
 ### Random experiment
 A random experiment is an experiment in which outcome is not known in advance.  
 Toss of a fair coin may give: {H, T}  
+An outcome is a result of a random experiment.  
+When we repeat a random experiment several times, we call each one of them a trial. Thus, a trial is a particular  
+performance of a random experiment. In the example of tossing a coin, each trial will result in either heads or tails.  
+Note that the sample space is defined based on how you define your random experiment.  
 
 #### Sample Space
 Set of all outcomes is known as sample space.  
@@ -182,57 +232,19 @@ Let us take an experiment in which we roll two six sided fair dices.
 S = {(1, 1), (1, 2), (1, 3), .......(6, 6)}
 Cardinality of S = |S| = 36 = 6 ^ 2  
 This can be derived from multiplication rule. Assume, there are 6 roots, numbering 1 to 6. Now from each root, 6 branches numbering 1 to 6, can be taken out.  
-number of roots are the possibilities i.e. 36
-    1
-  /
-1 - 2
-    .
-    .
-  \
-    6
-    <br>
-    1
-  /
-2 - 2
-    .
-    .
-  \
-    6
-    <br>
-    1
-  /
-6 - 2
-    .
-    .
-  \
-    6
+number of roots are the possibilities i.e. 36  
  
 Let us say you are interested in an event where sum of numbers on dice is an even number.  
 E = {(1,1), (1, 3), (1, 5), (2, 2), (2, 4), (2, 6), (3, 1), (3, 3), (3, 5), (4, 2), (4, 4), (4, 6), (5, 1), (5, 3), (5, 5), (6, 2), (6, 4), (6, 6)}
 Cardinality of E = |E| = 18  
-This can, again, be derived from multiplication rule.  
+This can, again, be derived from multiplication rule. 
 
-    2
-  /
-2 - 4
-    
-  \
-    6
-    <br>
-    
-    2
-  /
-4 - 4
-    
-  \
-    6
-    <br>
-    2
-  /
-6 - 4
-    
-  \
-    6
+#### Union and intersection
+If A and B are events, then A∪B and A∩B are also events. By remembering the definition of union and intersection, we observe that A∪B  
+occurs if A or B occur. Similarly, A∩B occurs if both A and B occur. Similarly, if A1,A2,⋯,An are events, then the event A1∪A2∪A3⋯∪An occurs  
+if at least one of A1,A2,⋯,An occurs. The event A1∩A2∩A3⋯∩An occurs if all of A1,A2,⋯,An occur. It can be helpful to remember that the key words "or"  
+and "at least" correspond to unions and the key words "and" and "all of" correspond to intersections.   
+
 
 
 
