@@ -338,13 +338,35 @@ and "at least" correspond to unions and the key words "and" and "all of" corresp
 it is random variable which can be counted. in other words DRV belongs a finite set.  
 Suppose you throw two fair dice.  
 S: Random variable which is the sum of numbers on the dices: 
- 
-| S  | P(S)   |  Event set  |
+Possible outcomes: {(1, 1), (1, 2).......(6, 6)} (total 36 possible events) 
+| S  | P(S)   |  Favoured outcomes  |
 |---|---|---|
 | 2  | 1 / 36  | {(1,1)}  |
-| 3  | 2 / 36  | {(1, 2) (2, 3)}  |
-| 4  | 3 / 36  | {(1, 3), (2, 2) (3, 1)}   |
+| 3  | 2 / 36  | {(1, 2), (2, 3)}  |
+| 4  | 3 / 36  | {(1, 3), (2, 2), (3, 1)}   |
 |  . |  .      |.  |  
+
+Let us think about coin toss as an event:  
+Define X as the random variable which is number of heads every time you toss the coin.    
+X = 0,  P(X=0) = 1 / 2  
+X = 1,  P(X=1) = 1 / 2  
+A random variable which can only take two values, is called as Bernaulli's random variable.  
+#### Geometric Random variable
+you keep on tossing a  fair coin until you get a head.  
+X: number of trials  
+| X  | P(X)   |    |
+|---|---|---|
+| 1  | 1 / 2 | {(H)}  |
+| 2  | (1 / 2)*(1 / 2)  | {(TH)}  |
+| 3  |  (1 / 2)*(1 / 2)*(1 / 2)  | {(TTH)}   |
+|  . |  .      |.  |  
+Let us understand why we are multiplying the probabilities.  
+for X = 2, we need T in the first toss and H in the second toss. Probability of T is 1 / 2. And Probability of H is 1 / 2   
+since each coin toss is an independent event, We need to multiply the probabilities.  
+
+
+
+
 
 
 
