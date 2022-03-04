@@ -1,8 +1,9 @@
 # Important Stats and Probability concepts
 ## resources
-[Harvard lectures playlist] (https://www.youtube.com/watch?v=KbB0FjPg0mw&list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo)
-[Oreilly video course] (https://learning.oreilly.com/videos/mastering-probability-and/9781801075091/9781801075091-video3_5/)
-[Probability course] (https://www.probabilitycourse.com/)
+[Harvard lectures playlist] (https://www.youtube.com/watch?v=KbB0FjPg0mw&list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo)  
+[Oreilly video course] (https://learning.oreilly.com/videos/mastering-probability-and/9781801075091/9781801075091-video3_5/)  
+[Probability course] (https://www.probabilitycourse.com/)  
+[Bayes Theorem Intuition] (https://www.youtube.com/watch?v=R13BD8qKeTg&t=67s)  
 
 
 ## Counting
