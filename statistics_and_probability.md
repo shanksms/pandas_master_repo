@@ -334,6 +334,18 @@ occurs if A or B occur. Similarly, A∩B occurs if both A and B occur. Similarly
 if at least one of A1,A2,⋯,An occurs. The event A1∩A2∩A3⋯∩An occurs if all of A1,A2,⋯,An occur. It can be helpful to remember that the key words "or"  
 and "at least" correspond to unions and the key words "and" and "all of" correspond to intersections.   
 
+### Discreet random variable
+it is random variable which can be counted. in other words DRV belongs a finite set.  
+Suppose you throw two fair dice.  
+S: Random variable which is the sum of numbers on the dices: 
+ 
+| S  | P(S)   |  Event set  |
+|---|---|---|
+| 2  | 1 / 36  | {(1,1)}  |
+| 3  | 2 / 36  | {(1, 2) (2, 3)}  |
+| 4  | 3 / 36  | {(1, 3), (2, 2) (3, 1)}   |
+|  . |  .      |.  |  
+
 
 
 
