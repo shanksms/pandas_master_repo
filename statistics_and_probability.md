@@ -364,6 +364,9 @@ Let us understand why we are multiplying the probabilities.
 for X = 2, we need T in the first toss and H in the second toss. Probability of T is 1 / 2. And Probability of H is 1 / 2   
 since each coin toss is an independent event, We need to multiply the probabilities.  
 
+We can show that:  
+P(X=1)  + P(X=2) + P(X=3) + ....... = 1  
+you can check the proof in the video.
 
 
 
