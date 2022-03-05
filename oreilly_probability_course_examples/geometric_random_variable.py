@@ -20,8 +20,12 @@ if __name__ == '__main__':
     for i in range(n):
         G[i] = geometric_trial(p)
     sns.set()
-    sns.displot(G)
+    #sns.displot(G)
+    plt.hist(G, density=True, bins=100)
+    sns.kdeplot(G, shade=True)
     plt.show()
+
+
 
 
 

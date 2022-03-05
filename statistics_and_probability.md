@@ -4,7 +4,7 @@
 [Oreilly video course] (https://learning.oreilly.com/videos/mastering-probability-and/9781801075091/9781801075091-video3_5/)  
 [Probability course] (https://www.probabilitycourse.com/)  
 [Bayes Theorem Intuition] (https://www.youtube.com/watch?v=R13BD8qKeTg&t=67s)  
-
+[latex template] (https://wjgan.com/posts/latex.html)
 
 ## Counting
 ### choose  without ordering
@@ -241,7 +241,9 @@ C = {(14), (24), (34), (44), (54), (64), (41), (42), (43}, (45), (46))
 P(A) = 6 / 36 = 1 / 6  
 P(C) = 11 / 36  
 P(C∩A) =  2 / 36  
-P(C | A) = P(C∩A) / P(A) = 2 / 6 = 1 / 3  
+P(C | A) = P(C∩A) / P(A) = 2 / 6 = 1 / 3    
+#### Gambler's ruin
+[detailed explanation] (https://www.youtube.com/watch?v=NB8atajijoc)
 
 
   
@@ -382,6 +384,10 @@ We can generalize as below:
 ![\Large P(X=k) = \binom{n}{k}\times\frac{1}{2}^{k}\times\frac{1}{2}^{n-k}](https://latex.codecogs.com/svg.latex?\Large&space;P(X=k)=\binom{n}{k}\times\frac{1}{2}^{k}\times\frac{1}{2}^{n-k})  
   
   
+#### PMF and PDF
+PMF - probability mass function is created for discreet random variable.  
+PDF - probability density function is created for continuous random variable.
+
 
   
 
