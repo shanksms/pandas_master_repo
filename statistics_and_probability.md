@@ -368,7 +368,18 @@ since each coin toss is an independent event, We need to multiply the probabilit
 
 We can show that:  
 P(X=1)  + P(X=2) + P(X=3) + ....... = 1  
-you can check the proof in the video.
+you can check the proof in the video.  
+
+#### Binomial Random variable
+you toss a fair coin n number of times.  
+X: number of heads in n tosses.  
+e.g. n = 3  
+S = {HHH, HHT, HTT, HTH, THH, THT, TTH, TTT}  
+This is a countable set as opposed to Geometric random variable example.  
+![\Large P(X=0) = \frac{1}{2}\times\frac{1}{2}\times\frac{1}{2}](https://latex.codecogs.com/svg.latex?\Large&space;P(X=0)=\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2})  
+  
+  
+
 
 
 
