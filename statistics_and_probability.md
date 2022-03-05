@@ -377,7 +377,10 @@ e.g. n = 3
 S = {HHH, HHT, HTT, HTH, THH, THT, TTH, TTT}  
 This is a countable set as opposed to Geometric random variable example.  
 ![\Large P(X=0) = \frac{1}{2}\times\frac{1}{2}\times\frac{1}{2}](https://latex.codecogs.com/svg.latex?\Large&space;P(X=0)=\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2})  
+![\Large P(X=1) = 3\times\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2}](https://latex.codecogs.com/svg.latex?\Large&space;P(X=1)=3\times\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2})  
+    
   
+
   
 
 
