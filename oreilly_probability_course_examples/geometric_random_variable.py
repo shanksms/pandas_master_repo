@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from oreilly_probability_course_examples.bernouli_random_variable import bernoulli_trial
 
 
@@ -17,6 +19,9 @@ if __name__ == '__main__':
     G = np.zeros(n)
     for i in range(n):
         G[i] = geometric_trial(p)
+    sns.set()
+    sns.displot(G)
+    plt.show()
 
 
 
