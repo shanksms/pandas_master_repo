@@ -379,7 +379,7 @@ This is a countable set as opposed to Geometric random variable example.
 ![\Large P(X=0) = \frac{1}{2}\times\frac{1}{2}\times\frac{1}{2}](https://latex.codecogs.com/svg.latex?\Large&space;P(X=0)=\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2})  
 ![\Large P(X=1) = 3\times\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2}](https://latex.codecogs.com/svg.latex?\Large&space;P(X=1)=3\times\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2})  
 We can generalize as below:  
-![\Large P(X=k) = \binom{n}{k}\times\frac{1}{2}^k](https://latex.codecogs.com/svg.latex?\Large&space;P(X=k)=\binom{n}{k}\times\frac{1}{2}^k)  
+![\Large P(X=k) = \binom{n}{k}\times\frac({1}{2})^k\times\frac({1}{2})^(n-k)](https://latex.codecogs.com/svg.latex?\Large&space;P(X=k)=\binom{n}{k}\times\frac({1}{2})^k\times\frac({1}{2})^(n-k))  
   
   
 
