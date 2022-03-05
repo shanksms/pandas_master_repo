@@ -359,7 +359,9 @@ X: number of trials
 | 1  | 1 / 2 | {(H)}  |
 | 2  | (1 / 2)*(1 / 2)  | {(TH)}  |
 | 3  |  (1 / 2)*(1 / 2)*(1 / 2)  | {(TTH)}   |
-|  . |  .      |.  |  
+|  . |  .      |.  |    
+
+
 Let us understand why we are multiplying the probabilities.  
 for X = 2, we need T in the first toss and H in the second toss. Probability of T is 1 / 2. And Probability of H is 1 / 2   
 since each coin toss is an independent event, We need to multiply the probabilities.  
