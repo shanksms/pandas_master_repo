@@ -204,7 +204,8 @@ TBD
 TBD 
 
 ### inclusion-exclusion principle
-![\Large P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C}))  
+1. With two events: ![\Large P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B}))  
+2. With three events: ![\Large P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C}))  
     
 
 
