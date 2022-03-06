@@ -204,8 +204,10 @@ TBD
 TBD 
 
 ### inclusion-exclusion principle
-1. With two events: ![\Large P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B}))  
-2. With three events: ![\Large P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C}))  
+![\Large P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B}))  
+![\Large P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C}))  
+![\Large P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})](https://latex.codecogs.com/svg.latex?\Large&space;P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i}))  
+
     
 
 
