@@ -204,11 +204,12 @@ TBD
 TBD 
 
 ### inclusion-exclusion principle
+#### With two events
 ![\Large P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B})=P(A)+P(B)-P({A}\cap{B}))  
-  
+#### With three events
 ![\Large P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C}))  
-  
-![\Large P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})-\sum_{i<j}P({A}_{i}\cap{A}_{j})+\sum_{i<j<k}P({A}_{i}\cap{A}_{j}\cap{A}_{k})+(-1)_{n+1}P({A1}\cap{A2}....\cap{A}_{n})](https://latex.codecogs.com/svg.latex?\Large&space;P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})-\sum_{i<j}P({A}_{i}\cap{A}_{j})+\sum_{i<j<k}P({A}_{i}\cap{A}_{j}\cap{A}_{k})+(-1)_{n+1}P({A1}\cap{A2}....\cap{A}_{n}))      
+#### General formula
+![\Large P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})-\sum_{i<j}P({A}_{i}\cap{A}_{j})+\sum_{i<j<k}P({A}_{i}\cap{A}_{j}\cap{A}_{k})+(-1)^{n+1}P({A1}\cap{A2}....\cap{A}_{n})](https://latex.codecogs.com/svg.latex?\Large&space;P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})-\sum_{i<j}P({A}_{i}\cap{A}_{j})+\sum_{i<j<k}P({A}_{i}\cap{A}_{j}\cap{A}_{k})+(-1)^{n+1}P({A1}\cap{A2}....\cap{A}_{n}))      
 
     
 
