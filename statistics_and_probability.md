@@ -214,8 +214,9 @@ TBD
 ### Matching problem (use of inclusion-exclusion problem)
 Consider a deck of cards. Player starts pulling out cards one by one. He wins when the number written in the card is same as the sequence. Find the probability of his win.
 e.g. if he pulls first Card having number one, he wins. If he pulls second card having number 2, he wins.  
-Let say, A(i) is the event of pulling ith numbered card in the ith attempt. Essentially, we are trying to find out following:  
-P(A1∪A2....∪An)  
+Let say, A(i) is the event of pulling ith numbered card in the ith attempt. Essentially, we are trying to find out following:
+    
+**P(A1∪A2....∪An)**  
   
   
  
