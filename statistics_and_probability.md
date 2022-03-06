@@ -211,13 +211,15 @@ TBD
 #### General formula
 ![\Large P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})-\sum_{i<j}P({A}_{i}\cap{A}_{j})+\sum_{i<j<k}P({A}_{i}\cap{A}_{j}\cap{A}_{k})+(-1)^{n+1}P({A1}\cap{A2}....\cap{A}_{n})](https://latex.codecogs.com/svg.latex?\Large&space;P({A1}\cup{A2}....\cup{A}_{n})=\sum_{i=1}^{n}P({A}_{i})-\sum_{i<j}P({A}_{i}\cap{A}_{j})+\sum_{i<j<k}P({A}_{i}\cap{A}_{j}\cap{A}_{k})+(-1)^{n+1}P({A1}\cap{A2}....\cap{A}_{n}))  
         
-### Matching problem (use of inclusion-exclusion problem)
+### Matching problem (use of inclusion-exclusion principle)
 Consider a deck of cards. Player starts pulling out cards one by one. He wins when the number written in the card is same as the sequence. Find the probability of his win.
 e.g. if he pulls first Card having number one, he wins. If he pulls second card having number 2, he wins.  
 Let say, A(i) is the event of pulling ith numbered card in the ith attempt. Essentially, we are trying to find out following:
     
-**P(A1∪A2....∪An)**  
-  
+**P(A1∪A2....∪An)**    
+![\Large P({A}_{i})=\frac{(n-1)!}{n!}](https://latex.codecogs.com/svg.latex?\Large&space;P({A}_{i})=\frac{(n-1)!}{n!})  
+There will be n such probabilities as you can choose any number from 1 to n.  
+
   
  
 
