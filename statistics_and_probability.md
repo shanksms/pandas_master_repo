@@ -203,6 +203,10 @@ TBD
 ###### The probability that it either will rain today or tomorrow, but not both.
 TBD 
 
+### inclusion-exclusion principle
+![\Large P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C})](https://latex.codecogs.com/svg.latex?\Large&space;P({A}\cup{B}\cup{C})=P(A)+P(B)+P(C)-P({A}\cap{B})-P({B}\cap{C})-P({A}\cap{C})+P({A}\cap{B}\cap{C}))  
+    
+
 
 ### Conditional probability
 Essentially, conditional probability tries to solve problem, "How do you update probabilities of events once you have new information"  
