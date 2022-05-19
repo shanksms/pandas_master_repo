@@ -2,6 +2,8 @@
 ### resources
 [pandas cookbook] (https://learning.oreilly.com/library/view/pandas-1-x-cookbook)  
 [Pandas interview question] (https://www.kaggle.com/getting-started/119445)
+[Pandas documentation] (https://pandas.pydata.org/docs/user_guide/timeseries.html)
+[Pandas Getting Started] (https://pandas.pydata.org/docs/getting_started/intro_tutorials/09_timeseries.html)
 
 ### filtering in dataframe and series
 #### filtering by single condition
