@@ -4,6 +4,7 @@
 [Pandas interview question] (https://www.kaggle.com/getting-started/119445)
 [Pandas documentation] (https://pandas.pydata.org/docs/user_guide/timeseries.html)
 [Pandas Getting Started] (https://pandas.pydata.org/docs/getting_started/intro_tutorials/09_timeseries.html)
+[Pandas blog] (https://pbpython.com/pandas_transform.html)
 
 ### filtering in dataframe and series
 #### filtering by single condition
