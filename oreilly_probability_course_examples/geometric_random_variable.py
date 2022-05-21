@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib_examples.pyplot as plt
 import seaborn as sns
 from oreilly_probability_course_examples.bernouli_random_variable import bernoulli_trial
 

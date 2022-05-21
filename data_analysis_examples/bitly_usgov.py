@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
+import matplotlib_examples.pyplot as plt
 import numpy as np
 
 path = 'bitly_usgov_example.txt'

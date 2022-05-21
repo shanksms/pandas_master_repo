@@ -4,7 +4,7 @@ Write a query that'll identify returning active users. A returning active user i
 second purchase within 7 days of any other of their purchases. Output a list of user_ids of these returning active 
 users.
 """
-user_transactions = pd.read_csv('user_purchase.csv')
+user_transactions = pd.read_csv('data_files/user_purchase.csv')
 user_transactions['created_at'] = pd.to_datetime(user_transactions['created_at']).dt.date
 user_transactions = user_transactions.sort_values(by=['user_id', 'created_at'], ascending=[True, True])
 user_transactions['prev_value'] = user_transactions.groupby('user_id')['created_at'].shift()

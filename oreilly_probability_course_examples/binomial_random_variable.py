@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib_examples.pyplot as plt
 import seaborn as sns
 
 def binomial_trial(n, p = 0.5):
