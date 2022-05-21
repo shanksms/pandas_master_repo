@@ -9,8 +9,8 @@ Output the customer's first name, city, number of orders, and total cost of orde
 
 import pandas as pd
 
-customers = pd.read_csv('data_files/customers.csv')
-orders = pd.read_csv('data_files/orders.csv')
+customers = pd.read_csv('../data_files/customers.csv')
+orders = pd.read_csv('../data_files/orders.csv')
 
 customer_order_df = pd.merge(customers, orders, left_on='id', right_on='cust_id')
 grouped_df = customer_order_df.groupby(
