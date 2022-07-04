@@ -22,6 +22,7 @@ Check the following diagram:
 3. All other axes must match  
 ![](images/broadcasting_example1.PNG)  
 ![](images/broadcasting_example2.PNG)  
+![](images/broadcasting_example3.PNG)  
 
 
 
