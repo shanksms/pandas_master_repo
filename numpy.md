@@ -33,8 +33,9 @@ Check the following diagram:
 ![](images/numpy_min_max.PNG)
 
 ## where function
-![](images/where.PNG)  
-###Syntax of np.where()  
+![](images/where.PNG)
+
+### Syntax of np.where()  
 numpy.where(condition[, x, y])  
 condition: A conditional expression that returns a Numpy array of bool  
 x, y: Arrays (Optional i.e. either both are passed or not passed)  
