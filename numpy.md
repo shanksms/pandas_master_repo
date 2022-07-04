@@ -15,7 +15,15 @@ Check the following diagram:
 4. Missing values propagate unless specifically ignored
 
 ## Broadcasting
-![](images/numpy_array_broadcasting.PNG)
+![](images/numpy_array_broadcasting.PNG)  
+### Shape compatibility rules
+1. if x and y have a different number of dimensions, prepend 1's to the shape of shorter
+2. Any axis of length 1 can be repeated (boradcast) to the length of the other vector's length in the axis
+3. All other axes must match  
+![](images/broadcasting_example1.PNG)  
+![](images/broadcasting_example2.PNG)  
+
+
 
 ## Array calculation methods
 ![](images/array_calc_methods.PNG)
@@ -24,8 +32,8 @@ Check the following diagram:
 ![](images/numpy_min_max.PNG)
 
 ## where function
-![](images/where.PNG)
-###Syntax of np.where()
+![](images/where.PNG)  
+###Syntax of np.where()  
 numpy.where(condition[, x, y])  
 condition: A conditional expression that returns a Numpy array of bool  
 x, y: Arrays (Optional i.e. either both are passed or not passed)  
