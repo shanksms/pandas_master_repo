@@ -51,8 +51,10 @@ If x & y arguments are not passed and only condition argument is passed then it 
 are True in bool numpy array. If the original array is multidimensional then it returns a tuple of arrays (one for each axis).  
 [how it works] [https://thispointer.com/numpy-where-tutorial-examples-python/]
 
+## memory view
+![](images/memory_view.PNG)
 
-
+## when you do fancy indexing, numpy returns copy. in case you do slice operation, it does not return a copy, it rather returns view in to the original array
 
 ```python
 
