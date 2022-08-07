@@ -60,3 +60,25 @@ are True in bool numpy array. If the original array is multidimensional then it 
 
 ```
 
+## Stack overflow questions
+###Calculate ecuclidian distance from two numpy vectors
+```python
+import numpy as np
+a = np.array((0, 0, 0))
+b = np.array((1, 1, 1))
+np.linalg(a, b)
+
+```
+### How do I get indices of N maximum values in a NumPy array?
+[explanation](https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html)
+```python
+import numpy as np
+
+a = np.array([9, 4, 4, 3, 3, 9, 0, 4, 6, 0])
+
+ind = np.argpartition(-a, 4)[:4]
+print(a[ind])
+#or
+print(-np.partition(-a, 4)[:4])
+```
+
