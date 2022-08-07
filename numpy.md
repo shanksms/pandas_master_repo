@@ -60,7 +60,7 @@ are True in bool numpy array. If the original array is multidimensional then it 
 
 ```
 
-## Stack overflow questions
+## short programming snippets
 ###Calculate ecuclidian distance from two numpy vectors
 ```python
 import numpy as np
@@ -82,3 +82,42 @@ print(a[ind])
 print(-np.partition(-a, 4)[:4])
 ```
 
+### Find nearest value in a numpy array
+```python
+import numpy as np
+def find_nearest(array, value):
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return array[idx]
+
+```
+### Pandas conditional creation of a series/dataframe column
+if you have only two choices to select from:
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame({'Type':list('ABBC'), 'Set':list('ZZXY')})
+df['color'] = np.where(df['Set']=='Z', 'green', 'red')
+print(df)
+```
+We can also do it using list comprehension:
+```python
+import pandas as pd
+
+df = pd.DataFrame({'Type':list('ABBC'), 'Set':list('ZZXY')})
+df['color'] = ['green' if x == 'Z' else 'red' for x in df.loc[:, 'Set']]
+```
+If  you have more than two conditions then use np.select. For example, if you want color to be:
+```python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'Type':list('ABBC'), 'Set':list('ZZXY')})
+conditions = [
+    (df['Set'] == 'Z') & (df['Type'] == 'A'),
+    (df['Set'] == 'Z') & (df['Type'] == 'B'),
+    (df['Type'] == 'B')]
+choices = ['yellow', 'blue', 'purple']
+df['color'] = np.select(conditions, choices, default='black')
+print(df)
+```
