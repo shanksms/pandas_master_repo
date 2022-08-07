@@ -121,3 +121,20 @@ choices = ['yellow', 'blue', 'purple']
 df['color'] = np.select(conditions, choices, default='black')
 print(df)
 ```
+### What does numpy.random.seed(0) do?
+it makes random numbers predictable.  
+With the seed reset (every time), the same set of numbers will appear every time.
+```shell script
+>>> numpy.random.seed(0) ; numpy.random.rand(4)
+array([ 0.55,  0.72,  0.6 ,  0.54])
+>>> numpy.random.seed(0) ; numpy.random.rand(4)
+array([ 0.55,  0.72,  0.6 ,  0.54])
+```
+if seed is not reset, different set of numbers will be produced.  
+(pseudo-)random numbers work by starting with a number (the seed), multiplying it by a large number, adding an offset,  
+then taking modulo of that sum. The resulting number is then used as the seed to generate the next "random" number.  
+When you set the seed (every time), it does the same thing every time, giving you the same numbers.  
+
+
+
+

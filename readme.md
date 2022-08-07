@@ -1457,6 +1457,21 @@ Out [95]
 6 1990-01-25    1994-10-02 1711 days
 ```
 
+### Dataframe rolling function
+```python
+import pandas as pd
+df = pd.DataFrame({'B': [1, 2, 3, 4, 5, 6]})
+print(df.rolling(3).sum())
+```
+```shell script
+      B
+0   NaN
+1   NaN
+2   6.0
+3   9.0
+4  12.0
+5  15.0
+```
 
 
 
