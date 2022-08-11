@@ -5,7 +5,7 @@
 [Pandas documentation] (https://pandas.pydata.org/docs/user_guide/timeseries.html)
 [Pandas Getting Started] (https://pandas.pydata.org/docs/getting_started/intro_tutorials/09_timeseries.html)
 [Pandas blog] (https://pbpython.com/pandas_transform.html)
-
+[jezrael] (https://stackoverflow.com/users/2901002/jezrael)
 ### filtering in dataframe and series
 #### filtering by single condition
 ```python
@@ -1472,6 +1472,83 @@ print(df.rolling(3).sum())
 4  12.0
 5  15.0
 ```
+
+### Stack over flow questions and answers
+#### Pivot table
+Given following dataframe:
+```shell script
+     key   row   item   col  val0  val1
+0   key0  row3  item1  col3  0.81  0.04
+1   key1  row2  item1  col2  0.44  0.07
+2   key1  row0  item1  col0  0.77  0.01
+3   key0  row4  item0  col2  0.15  0.59
+4   key1  row0  item2  col1  0.81  0.64
+5   key1  row2  item2  col4  0.13  0.88
+6   key2  row4  item1  col3  0.88  0.39
+7   key1  row4  item1  col1  0.10  0.07
+8   key1  row0  item2  col4  0.65  0.02
+9   key1  row2  item0  col2  0.35  0.61
+10  key2  row0  item2  col1  0.40  0.85
+11  key2  row4  item1  col2  0.64  0.25
+12  key0  row2  item2  col3  0.50  0.44
+13  key0  row4  item1  col4  0.24  0.46
+14  key1  row3  item2  col3  0.28  0.11
+15  key0  row3  item1  col1  0.31  0.23
+16  key0  row0  item2  col3  0.86  0.01
+17  key0  row4  item0  col3  0.64  0.21
+18  key2  row2  item2  col0  0.13  0.45
+19  key0  row2  item0  col4  0.37  0.70
+```
+1. How do I pivot df such that the col values are columns, row values are the index, mean of val0 are the values, and missing values are 0?
+```python
+df.pivot_table(values='val0', index='row', columns='col', aggfunc='mean', fill_value=0)
+df.groupby(['row', 'col'])['val0'].mean().unstack(fill_value=0)
+```
+```shell script
+  col   col0   col1   col2   col3  col4
+  row
+  row0  0.77  0.605  0.000  0.860  0.65
+  row2  0.13  0.000  0.395  0.500  0.25
+  row3  0.00  0.310  0.000  0.545  0.00
+  row4  0.00  0.100  0.395  0.760  0.24
+```
+2. Get sum inplace of mean
+```python
+df.pivot_table(values='val0', index='row', columns='col', aggfunc='sum', fill_value=0)
+df.groupby(['row', 'col'])['val0'].sum().unstack(fill_value=0)
+
+```
+3. Lets get size and mean aggregations
+```python
+import numpy as np
+df.pivot_table(values='val0', index='row', columns='col', aggfunc=[np.mean, np.size], fill_value=0)
+df.groupby(['row', 'col'])['val0'].agg(['size', 'mean']).unstack(fill_value=0)
+```
+```shell script
+       size                      mean
+  col  col0 col1 col2 col3 col4  col0   col1   col2   col3  col4
+  row
+  row0    1    2    0    1    1  0.77  0.605  0.000  0.860  0.65
+  row2    1    0    2    1    2  0.13  0.000  0.395  0.500  0.25
+  row3    0    1    0    2    0  0.00  0.310  0.000  0.545  0.00
+  row4    0    1    2    2    1  0.00  0.100  0.395  0.760  0.24
+```
+4. aggregate over multiple value columns
+```python
+  df.pivot_table(
+      values=['val0', 'val1'], index='row', columns='col',
+      fill_value=0, aggfunc='mean')
+```
+```shell script
+      val0                             val1
+  col   col0   col1   col2   col3  col4  col0   col1  col2   col3  col4
+  row
+  row0  0.77  0.605  0.000  0.860  0.65  0.01  0.745  0.00  0.010  0.02
+  row2  0.13  0.000  0.395  0.500  0.25  0.45  0.000  0.34  0.440  0.79
+  row3  0.00  0.310  0.000  0.545  0.00  0.00  0.230  0.00  0.075  0.00
+  row4  0.00  0.100  0.395  0.760  0.24  0.00  0.070  0.42  0.300  0.46
+```
+
 
 
 
