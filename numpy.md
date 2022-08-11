@@ -4,9 +4,14 @@
 [numpy intro] (https://www.youtube.com/watch?v=ZB7BZMhfPgk&t=4727s)
 
 ## Why Numpy arrays are faster compared to python lists
-1. in numpy, you can store only one type. Due to which it needs less size as compared to list. for example,
-if you are storing int32 in numpy, each element will take 32 bit. in case of python list, each element will take more size.
-Check the following diagram:
+Numpy arrays are contiguously packed arrays of homogeneous type. Python lists, by contrast, are arrays of pointers to objects, 
+even when all of them are of the same type. Therefore accessing elements of numpy array is faster than elements of python list.
+in other words in numpy, it is just a matter of pointer addition to access any element. python list stores reference to objects, and those objects
+may not be stored contiguously.
+
+One more reason for numpy being fast is, operations on array in numpy are vectorized operations. Vectorized operations in numpy delegate the responsibility of
+lopping to highly optimized c functions. Which are faster than looping in python.
+
 
 ## Visualizing multidimensional arrays
 ![](images/numpy_multi_dim_array.PNG)
