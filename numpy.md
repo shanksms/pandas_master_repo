@@ -12,6 +12,20 @@ may not be stored contiguously.
 One more reason for numpy being fast is, operations on array in numpy are vectorized operations. Vectorized operations in numpy delegate the responsibility of
 lopping to highly optimized c functions. Which are faster than looping in python.
 
+## Example of vectorized operation
+```python
+import numpy as np
+
+a_np = np.array((1, 2, 3))
+#vectorized operation
+a_np = a_np + 2
+print(a_np)
+a_py = [1, 2, 3]
+
+for idx, e in enumerate(a_py):
+    a_py[idx] += 2
+print(a_py)
+```
 
 ## Visualizing multidimensional arrays
 ![](images/numpy_multi_dim_array.PNG)
