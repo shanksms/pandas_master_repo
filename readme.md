@@ -10,6 +10,36 @@
 ### Understanding axis in pandas
 Look at following to understand dataframe axis:
 ![](images/data-frame-axes.png)
+Many times while calling a function on datafram you need to supply axis. In order to figure out which axis you should use  
+think as a result of the operations which axis will be elongated or squeezed. That axis will be passed in the function call.  
+Let's take some examples:
+```python
+import pandas as pd
+df = pd.DataFrame(
+    {
+        'age': [20, 21, 22, 23],
+        'height': [130, 140, 150, 160]
+    }
+)
+
+print(df.sum(axis=0))
+
+print(df.sum(axis=1))
+```
+Following is the result:
+```shell script
+age        86
+height    580
+dtype: int64
+
+```
+```shell script
+0    150
+1    161
+2    172
+3    183
+dtype: int64
+```
 
 ### filtering in dataframe and series
 #### filtering by single condition
