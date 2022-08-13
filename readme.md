@@ -6,6 +6,11 @@
 [Pandas Getting Started] (https://pandas.pydata.org/docs/getting_started/intro_tutorials/09_timeseries.html)
 [Pandas blog] (https://pbpython.com/pandas_transform.html)
 [jezrael] (https://stackoverflow.com/users/2901002/jezrael)
+
+### Understanding axis in pandas
+Look at following to understand dataframe axis:
+![](images/data-frame-axes.png)
+
 ### filtering in dataframe and series
 #### filtering by single condition
 ```python
