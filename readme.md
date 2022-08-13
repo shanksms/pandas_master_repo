@@ -1629,6 +1629,89 @@ df['percent_of_order'] = df['ext_price'] / df['order_total']
 
 ```
 
+#### How to add sequential counter column on groups using Pandas groupby?
+Given following dataframe:
+```shell script
+    c1 c2  v1  
+0   A  X   3 
+1   A  X   5 
+2   A  Y   7 
+3   A  Y   1 
+4   B  X   3 
+5   B  X   1 
+6   B  X   3 
+7   B  Y   1 
+8   C  X   7 
+9   C  Y   4 
+10  C  Y   1 
+11  C  Y   6 
+```
+Get following:
+```shell script
+   c1 c2  v1  seq
+0   A  X   3    1
+1   A  X   5    2
+2   A  Y   7    1
+3   A  Y   1    2
+4   B  X   3    1
+5   B  X   1    2
+6   B  X   3    3
+7   B  Y   1    1
+8   C  X   7    1
+9   C  Y   4    1
+10  C  Y   1    2
+11  C  Y   6    3
+```
+```python
+import pandas as pd
+df = pd.DataFrame(
+    columns="   index    c1    c2    v1 ".split(),
+    data= [
+            [       0,  "A",  "X",    3, ],
+            [       1,  "A",  "X",    5, ],
+            [       2,  "A",  "Y",    7, ],
+            [       3,  "A",  "Y",    1, ],
+            [       4,  "B",  "X",    3, ],
+            [       5,  "B",  "X",    1, ],
+            [       6,  "B",  "X",    3, ],
+            [       7,  "B",  "Y",    1, ],
+            [       8,  "C",  "X",    7, ],
+            [       9,  "C",  "Y",    4, ],
+            [      10,  "C",  "Y",    1, ],
+            [      11,  "C",  "Y",    6, ],]).set_index("index", drop=True)
+df.groupby(['c1', 'c2']).cumcount()
+```
+
+#### Pandas DENSE RANK
+Given following dataframe:
+```shell script
+Year Value  
+2012  10
+2013  20
+2013  25
+2014  30
+```
+output following dataframe:
+```shell script
+    Year Value Rank
+    2012  10    1
+    2013  20    2
+    2013  25    2
+    2014  30    3
+```
+```python
+import pandas as pd
+df = pd.DataFrame(
+    {
+        'Year': [2012, 2013, 2013, 2014],
+        'Value': [10, 20, 25, 30]
+    }
+)
+
+df['Rank'] = df.loc[ : , ['Year']].rank(method='dense').astype('int')
+
+print(df)
+```
 
 
 
