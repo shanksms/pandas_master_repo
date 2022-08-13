@@ -40,6 +40,34 @@ dtype: int64
 3    183
 dtype: int64
 ```
+Lets take another example. Given following dataframe, lets say you want to create another column - person_type.  
+In this case, axis 1 will be elongated (increased in size). Therefore, you need use axis = 1
+```python
+import pandas as pd
+df = pd.DataFrame(
+    {
+        'age': [20, 21, 22, 23],
+        'height': [130, 140, 150, 160]
+    }
+)
+
+def person_type(row):
+    if row.loc['age'] > 22:
+        return 'Old'
+    else:
+        return 'Young'
+
+df['person_type'] = df.apply(person_type, axis=1)
+print(df)
+```
+```shell script
+   age  height person_type
+0   20     130       Young
+1   21     140       Young
+2   22     150       Young
+3   23     160         Old
+
+```
 
 ### filtering in dataframe and series
 #### filtering by single condition
