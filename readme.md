@@ -1549,6 +1549,50 @@ df.groupby(['row', 'col'])['val0'].agg(['size', 'mean']).unstack(fill_value=0)
   row4  0.00  0.100  0.395  0.760  0.24  0.00  0.070  0.42  0.300  0.46
 ```
 
+#### Calculate mean values on grouped column
+Consider following dataframe:
+```shell script
+StationID  HoursAhead    BiasTemp  
+SS0279           0          10
+SS0279           1          20
+KEOPS            0          0
+KEOPS            1          5
+BB               0          5
+BB               1          5
+```
+Get following result. Bias temp is the mean values grouped on StationID:
+```shell script
+StationID  BiasTemp  
+SS0279     15
+KEOPS      2.5
+BB         5
+```
+Answer
+```python
+import pandas as pd
+df = pd.DataFrame()
+df.groupby('StationID', asIndex=False)['BiasTemp'].mean()
+#or
+df.groupby('StationID')['BiasTemp'].mean().reset_index()
+
+```
+#### What percentage of the order total does each sku represent?
+	account	name	order	sku	quantity	unit price	ext price  
+0	383080	Will LLC	10001	B1-20000	7	33.69	235.83  
+1	383080	Will LLC	10001	S1-27722	11	21.12	232.32  
+2	383080	Will LLC	10001	B1-86481	3	35.99	107.97  
+3	412290	Jerde-Hilpert	10005	S1-06532	48	55.82	2679.36  
+4	412290	Jerde-Hilpert	10005	S1-82801	21	13.62	286.02  
+5	412290	Jerde-Hilpert	10005	S1-06532	9	92.55	832.95  
+6	412290	Jerde-Hilpert	10005	S1-47412	44	78.91	3472.04  
+7	412290	Jerde-Hilpert	10005	S1-27722	36	25.42	915.12  
+8	218895	Kulas Inc	10006	S1-27722	32	95.66	3061.12  
+9	218895	Kulas Inc	10006	B1-33087	23	22.55	518.65  
+10	218895	Kulas Inc	10006	B1-33364	3	72.30	216.90  
+11	218895	Kulas Inc	10006	B1-20000	-1	72.18	-72.18  
+
+
+
 
 
 
