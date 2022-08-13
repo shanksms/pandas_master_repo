@@ -1577,7 +1577,7 @@ df.groupby('StationID')['BiasTemp'].mean().reset_index()
 
 ```
 #### What percentage of the order total does each sku represent?
-| account	name |	order	| sku	| quantity |	unit price |	ext price |
+| account | name |	order	| sku	| quantity |	unit_price |	ext_price |
 |:------------- |:-------------|:-----|:-------|:--------------|:-------------|
 |	383080	    |    Will LLC	   | 10001|	B1-20000	|7	|33.69	|235.83 | 
 |	383080	    |    Will LLC	   | 10001|	S1-27722	|11	|21.12	|232.32 | 
@@ -1592,7 +1592,42 @@ df.groupby('StationID')['BiasTemp'].mean().reset_index()
 |	218895	    |    Kulas Inc	   | 10006|	B1-33364	|3	|72.30	|216.90 | 
 |	218895	    |    Kulas Inc	   | 10006|	B1-20000	|-1	|72.18	|-72.18 |  
   
-  
+##### using groupby and merge
+```python
+import pandas as pd
+df = pd.DataFrame({
+'account': [383080, 383080, 383080, 412290, 412290, 412290, 412290, 412290, 218895, 218895, 218895, 218895],
+'name': ['Will LLC', 'Will LLC', 'Will LLC', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Kulas Inc', 'Kulas Inc', 'Kulas Inc', 'Kulas Inc'],
+'order': [10001, 10001, 10001, 10005, 10005, 10005, 10005, 10005, 10006, 10006, 10006, 10006],
+'sku': ['B1-20000', 'S1-27722', 'B1-86481', 'S1-06532', 'S1-82801', 'S1-06532', 'S1-47412', 'S1-27722', 'S1-27722', 'B1-33087', 'B1-33364', 'B1-20000'],
+'quantity': [7, 11, 3, 48, 21, 9, 44, 36, 32, 23, 3, -1],
+'unit_price': [33.69,21.12,35.99,55.82,13.62,92.55,78.91,25.42,95.66,22.55,72.30,72.18],
+'ext_price': [235.83 ,232.32 ,107.97 ,2679.36,286.02 ,832.95 ,3472.04,915.12 ,3061.12,518.65 ,216.90 ,-72.18]
+})
+
+order_total = df.groupby('order')['ext_price'].agg(['sum']).rename(columns={'sum': 'order_total'}).reset_index()
+merged_df = pd.merge(df, order_total)
+merged_df['percent_of_order'] = merged_df['ext_price'] / merged_df['order_total']
+
+```
+
+##### using transform
+```python
+import pandas as pd
+df = pd.DataFrame({
+'account': [383080, 383080, 383080, 412290, 412290, 412290, 412290, 412290, 218895, 218895, 218895, 218895],
+'name': ['Will LLC', 'Will LLC', 'Will LLC', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Jerde-Hilpert', 'Kulas Inc', 'Kulas Inc', 'Kulas Inc', 'Kulas Inc'],
+'order': [10001, 10001, 10001, 10005, 10005, 10005, 10005, 10005, 10006, 10006, 10006, 10006],
+'sku': ['B1-20000', 'S1-27722', 'B1-86481', 'S1-06532', 'S1-82801', 'S1-06532', 'S1-47412', 'S1-27722', 'S1-27722', 'B1-33087', 'B1-33364', 'B1-20000'],
+'quantity': [7, 11, 3, 48, 21, 9, 44, 36, 32, 23, 3, -1],
+'unit_price': [33.69,21.12,35.99,55.82,13.62,92.55,78.91,25.42,95.66,22.55,72.30,72.18],
+'ext_price': [235.83 ,232.32 ,107.97 ,2679.36,286.02 ,832.95 ,3472.04,915.12 ,3061.12,518.65 ,216.90 ,-72.18]
+})
+
+df['order_total'] = df.groupby('order')['ext_price'].transform('sum')
+df['percent_of_order'] = df['ext_price'] / df['order_total']
+
+```
 
 
 
