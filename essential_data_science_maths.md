@@ -48,5 +48,28 @@ skewed the income average.
 
 When your median is very different from your mean, that means you have a skewed dataset with outliers.
 
+#### mode
+The mode is the most frequently occurring set of values. It primarily becomes useful when your data is repetitive and  
+you want to find which values occur the most frequently.
 
+When no value occurs more than once, there is no mode. When two values occur with an equal amount of frequency, then the  
+dataset is considered bimodal. In Example 3-5 we calculate the mode for our pet dataset, and sure enough we see this is bimodal  
+as both 2 and 3 occur the most (and equally) as often.  
+```python
+from collections import defaultdict
+
+sample = [1, 3, 2, 5, 7, 0, 2, 3]
+
+def mode(values):
+    counts = defaultdict(lambda: 0)
+
+    for s in values:
+        counts[s] += 1
+
+    max_count = max(counts.values())
+    modes = [v for v in set(values) if counts[v] == max_count]
+    return modes
+
+print(mode(sample)) # [2, 3]
+```
 
