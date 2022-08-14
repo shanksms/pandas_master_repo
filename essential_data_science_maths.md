@@ -103,4 +103,16 @@ def std_dev(values):
 
 print(std_dev(data))  # prints 4.624689730353898
 ```
+#### Sample variance and sample std
+In the previous section we talked about variance and standard deviation for a population. However, there is an important  
+tweak we need to apply to these two formulas when we calculate for a sample:
+![](images/sample_variance_std.PNG)
+Did you catch the difference? When we average the squared differences, we divide by n–1 rather than the total number of items n.  
+Why would we do this? We do this to decrease any bias in a sample and not underestimate the variance of the population based on our sample.  
+By counting values short of one item in our divisor, we increase the variance and therefore capture greater uncertainty in our sample.
 
+
+#### The normal distribution
+The normal distribution, also known as the Gaussian distribution, is a symmetrical bell-shaped distribution that has most  
+mass around the mean, and its spread is defined as a standard deviation. The “tails” on either side become thinner as you move away from the mean.
+![](images/normal_distribution_pdf.PNG)
