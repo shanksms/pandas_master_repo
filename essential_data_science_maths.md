@@ -72,4 +72,35 @@ def mode(values):
 
 print(mode(sample)) # [2, 3]
 ```
+#### Population Variance and Standard Deviation
+In describing data, we are often interested in measuring the differences between the mean and every data point. This gives us a sense of how “spread out” the data is.  
+
+Let’s say I’m interested in studying the number of pets owned by members of my work staff (note that I’m defining this as my population, not a sample). I have seven people on my staff.  
+
+I take the mean of all the numbers of pets they own, and I get 6.571. Let’s subtract this mean from each value. This will show us how far each value is from the mean as shown.  
+![](images/spread_from_mean.PNG)
+now consider why this information can be useful. The differences give us a sense of how spread out the data is and how far values are from the mean.  
+Is there a way we can consolidate these differences into a single number to quickly describe how spread out the data is?  
+You may be tempted to take the average of the differences, but the negatives and positives will cancel each other out when  
+they are summed. We could sum the absolute values (rid the negative signs and make all values positive). An even better  
+approach would be to square these differences before summing them. This not only rids the negative values (because squaring a  
+negative number makes it positive), but it amplifies larger differences and is mathematically easier to work with (derivatives are  
+not straightforward with absolute values). After that, average the squared differences. This will give us the variance, a measure of how spread out our data is.  
+![](images/popultion_variance.PNG)
+```python
+from math import sqrt
+
+# Number of pets each person owns
+data = [0, 1, 5, 7, 9, 10, 14]
+
+def variance(values):
+    mean = sum(values) / len(values)
+    _variance = sum((v - mean) ** 2 for v in values) / len(values)
+    return _variance
+
+def std_dev(values):
+    return sqrt(variance(values))
+
+print(std_dev(data))  # prints 4.624689730353898
+```
 
