@@ -1775,7 +1775,26 @@ df['Rank'] = df.loc[ : , ['Year']].rank(method='dense').astype('int')
 
 print(df)
 ```
+#### Write a query that'll identify returning active users. A returning active user is a user that has made a second purchase within 7 days of any other of their purchases. Output a list of user_ids of these returning active users.
+ ```shell script
+id	user_id	item	created_at	revenue
+1	109	milk	2020-03-03 00:00:00	123
+2	139	biscuit	2020-03-18 00:00:00	421
+3	120	milk	2020-03-18 00:00:00	176
+4	108	banana	2020-03-18 00:00:00	862
+5	130	milk	2020-03-28 00:00:00	333
+```
+```python
+import pandas as pd
+amazon_transactions = pd.DataFrame()
+amazon_transactions['created_at'] = amazon_transactions['created_at'].dt.date
+amazon_transactions = amazon_transactions.sort_values(by=['user_id', 'created_at'], ascending=[True, True])
+amazon_transactions['prev'] = amazon_transactions.groupby('user_id')['created_at'].shift()
+amazon_transactions['days'] =  (amazon_transactions['created_at'] - amazon_transactions['prev']).dt.days 
+amazon_transactions = amazon_transactions[amazon_transactions['days'] <= 7]
+amazon_transactions['user_id'].unique()
 
+```
 
 
 
