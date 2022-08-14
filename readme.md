@@ -1795,6 +1795,33 @@ amazon_transactions = amazon_transactions[amazon_transactions['days'] <= 7]
 amazon_transactions['user_id'].unique()
 
 ```
+#### ABC Corp is a mid-sized insurer in the US and in the recent past their fraudulent claims have increased significantly for their personal auto insurance portfolio. They have developed a ML based predictive model to identify propensity of fraudulent claims. Now, they assign highly experienced claim adjusters for top 5 percentile of claims identified by the model.
+Your objective is to identify the top 5 percentile of claims from each state. Your output should be policy number, state, claim cost, and fraud score.
+
+```shell script
+policy_num	state	claim_cost	fraud_score
+ABCD1001	CA	4113	0.613
+ABCD1002	CA	3946	0.156
+ABCD1003	CA	4335	0.014
+ABCD1004	CA	3967	0.142
+ABCD1005	CA	1599	0.889
+ABCD1006	CA	1021	0.873
+ABCD1007	CA	1725	0.512
+```
+
+```python
+import pandas as pd
+fraud_score = pd.DataFrame()
+def a(df):
+    return df[df['fraud_score'] >= df['fraud_score'].quantile(0.95)]
+
+result = fraud_score.groupby('state').apply(a)
+
+#other approach
+fraud_score["percentile"] = fraud_score.groupby('state')['fraud_score'].rank(pct=True)
+df= fraud_score[fraud_score['percentile']>.95]
+result = df[['policy_num','state','claim_cost','fraud_score']]
+```
 
 
 
