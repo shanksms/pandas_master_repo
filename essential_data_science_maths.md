@@ -130,4 +130,70 @@ The normal distribution has several important properties that make it useful:
 4. The “tails” are the least likely outcomes and approach zero infinitely but never touch zero.
 
 5. It resembles a lot of phenomena in nature and daily life, and even generalizes nonnormal problems because of the central limit theorem, which we will talk about shortly.  
- 
+
+#### PDF
+The probability density function (PDF) that creates the normal distribution is as follows:
+![](images/pdf_normal_distribution.PNG)
+There’s a lot to take apart here in this formula, but what’s important is that it accepts a mean and standard deviation as parameters,  
+as well as an x-value so you can look up the likelihood at that given value.
+
+Just like the beta distribution in Chapter 2, the normal distribution is continuous. This means to retrieve a probability  
+we need to integrate a range of x values to find an area.  
+#### CDF
+With the normal distribution, the vertical axis is not the probability but rather the likelihood (which has already occurred) for the data.  
+To find the probability we need to look at a given range, and then find the area under the curve for that range.  
+Let’s say I want to find the probability of a golden retriever weighing between 62 and 66 pounds. Figure 3-7 shows the range we want to find the area for.
+
+![](images/sample_normal_distribution_pdf.PNG)
+
+the CDF provides the area up to a given x-value for a given distribution. Let’s see what the CDF looks like for our  
+golden retriever normal distribution and put it alongside the PDF for reference in Figure 3-8.  
+![](images/cdf_pdf_together.PNG)
+
+Let us say mean of golden retrievers' height is 64.43 and std dev is 2.99. We want calcualte area of pdf from -inf to mean.
+```python
+from scipy.stats import norm
+
+mean = 64.43
+std_dev = 2.99
+
+x = norm.cdf(64.43, mean, std_dev)
+print(x)
+```
+Let say, we want to find out the probability of observing a golden retriever between 62 and 66 pounds. Pictorially, below is what we are trying to find.  
+![](images/middle_range_of_probability.PNG)
+```python
+from scipy.stats import norm
+
+mean = 64.43
+std_dev = 2.99
+
+x = norm.cdf(66, mean, std_dev) - norm.cdf(62, mean, std_dev)
+
+print(x) # prints 0.4920450147062894
+```
+Let us do the opposite. i want to find the weight that 95% of golden retrievers fall under:  
+```python
+from scipy.stats import norm
+mean = 64.43
+std_dv = 2.99
+x = norm.ppf(.95, loc=mean, scale=std_dv)
+print(x) # 69.3481123445849
+```
+The answer is 69.34.  
+#### generate random numbers for normal distribution
+```python
+import random
+from scipy.stats import norm
+
+for i in range(0,1000):
+    random_p = random.uniform(0.0, 1.0)
+    random_weight = norm.ppf(random_p,  loc=64.43, scale=2.99)
+    print(random_weight)
+```
+
+#### z score
+Z score is a technique to represent all x values in terms of standard deviations.    
+Turning an x-value into a Z-score uses a basic scaling formula:
+![](images/zscore_formula.PNG)
+
