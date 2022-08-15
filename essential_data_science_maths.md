@@ -193,7 +193,45 @@ for i in range(0,1000):
 ```
 
 #### z score
-Z score is a technique to represent all x values in terms of standard deviations.    
-Turning an x-value into a Z-score uses a basic scaling formula:
+Z score is a technique to represent all x values in terms of standard deviations.Turning an x-value into a Z-score uses a basic scaling formula:  
+
 ![](images/zscore_formula.PNG)
+Here is an example. We have two homes from two different neighborhoods. Neighborhood A has a mean home value of $140,000 and  
+standard deviation of $3,000. Neighborhood B has a mean home value of $800,000 and standard deviation of $10,000.  
+µ(A) = 140000  
+µ(B) = 800000  
+σ(A) = 3000  
+σ(B) =  10000  
+Now we have two homes from each neighborhood. House A from neighborhood A is worth $150,000 and house B from neighborhood    
+B is worth $815,000. Which home is more expensive relative to the average home in its neighborhood?  
+x(A) = 150000  
+x(B) = 815000  
+z(A) = (150000 - 140000) / 3000 =  3.333    
+z(B) = (815000 - 800000) / 10000 =  1.5  
+So the house in neighborhood A is actually much more expensive relative to its neighborhood than the house in neighborhood B, as they have Z-scores of  and 1.5, respectively.  
+```python
+def z_score(x, mean, std):
+    return (x - mean) / std
+
+
+def z_to_x(z, mean, std):
+    return (z * std) + mean
+
+
+mean = 140000
+std_dev = 3000
+x = 150000
+
+# Convert to Z-score and then back to X
+z = z_score(x, mean, std_dev)
+back_to_x = z_to_x(z, mean, std_dev)
+
+print("Z-Score: {}".format(z))  # Z-Score: 3.333
+print("Back to X: {}".format(back_to_x))  # Back to X: 150000.0
+```
+
+  
+
+
+
 
