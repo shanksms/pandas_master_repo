@@ -230,7 +230,51 @@ print("Z-Score: {}".format(z))  # Z-Score: 3.333
 print("Back to X: {}".format(back_to_x))  # Back to X: 150000.0
 ```
 
+### inferential statistics
+Descriptive statistics, which we have covered so far, is commonly understood. However, when we get into inferential  
+statistics the abstract relationships between sample and population come into full play. These abstract nuances are not  
+something you want to rush through but rather take your time and absorb thoughtfully. As stated earlier, we are wired as  
+humans to be biased and quickly come to conclusions. Being a good data science professional requires you to suppress that  
+primal desire and consider the possibility that other explanations can exist. It is acceptable (perhaps even enlightened)  
+to theorize there is no explanation at all and a finding is just coincidental and random.  
+
+#### Central limit theorem
+```python
+#central limit theorem in action
+import random
+import plotly.express as px
+
+sample_size = 31
+sample_count = 1000
+
+# Central limit theorem, 1000 samples each with 31
+# random numbers between 0.0 and 1.0
+x_values = [(sum([random.uniform(0.0, 1.0) for i in range(sample_size)]) /  sample_size)  for _ in range(sample_count)]
+
+y_values = [1 for _ in range(sample_count)]
+
+px.histogram(x=x_values, y = y_values, nbins=20).show()
+```
   
+This is because of the central limit theorem, which states that interesting things happen when we take large enough samples of a population, calculate the mean of each,  
+and plot them as a distribution:  
+
+1. The mean of the sample means is equal to the population mean.
+
+2. If the population is normal, then the sample means will be normal.
+
+3. If the population is not normal, but the sample size is greater than 30, the sample means will still roughly form a normal distribution.
+
+4. The standard deviation of the sample means equals the population standard deviation divided by the square root of n:  
+
+Why is all of the above important? These behaviors allows us to infer useful things about populations based on samples,  
+even for nonnormal populations. If you modify the preceding code and try smaller sample sizes of 1 or 2,  
+you will not see a normal distribution emerge. But as you approach 31 or more, you will see that we converge onto a normal distribution as shown in Figure 3-13.  
+
+![](images/central_limit_thoerem_large_sample_size.PNG)  
+
+
+
 
 
 
