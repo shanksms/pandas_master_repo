@@ -116,3 +116,18 @@ By counting values short of one item in our divisor, we increase the variance an
 The normal distribution, also known as the Gaussian distribution, is a symmetrical bell-shaped distribution that has most  
 mass around the mean, and its spread is defined as a standard deviation. The “tails” on either side become thinner as you move away from the mean.
 ![](images/normal_distribution_pdf.PNG)
+Is there a better way to visualize this likelihood to see which golden retriever weights we are more likely to see sampled  
+from the population? We can try to create a histogram, which buckets (or “bins”) up values based on numeric ranges of equal length,  
+and then uses a bar chart showing the number of values within each range.  
+The normal distribution has several important properties that make it useful:
+
+1. It’s symmetrical; both sides are identically mirrored at the mean, which is the center.
+
+2. Most mass is at the center around the mean.
+
+3. It has a spread (being narrow or wide) that is specified by standard deviation.
+
+4. The “tails” are the least likely outcomes and approach zero infinitely but never touch zero.
+
+5. It resembles a lot of phenomena in nature and daily life, and even generalizes nonnormal problems because of the central limit theorem, which we will talk about shortly.  
+ 
