@@ -1,6 +1,6 @@
 ## links
 
-##Linear regression
+## Linear regression
 A regression attempts to fit a function to observed data. this function can be used to make prediction on new data.  
 A linear regression fits a straight line to observed data. This tries to show linear relationship between two variables.  
 This line can be used to make prediction on new data.  
