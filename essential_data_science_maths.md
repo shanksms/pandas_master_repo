@@ -273,6 +273,11 @@ you will not see a normal distribution emerge. But as you approach 31 or more, y
 
 ![](images/central_limit_thoerem_large_sample_size.PNG)  
 
+Thirty-one is the textbook number in statistics because that is when our sample distribution often converges  
+onto the population distribution, particularly when we measure sample means or other parameters. When you have fewer  
+than 31 items in your sample, that is when you have to rely on the T-distribution rather than the normal distribution,  
+which has increasingly fatter tails the smaller your sample size. We will briefly talk about this later, but first let’s assume  
+we have at least 31 items in our samples when we talk about confidence intervals and testing.  
 
 
 
