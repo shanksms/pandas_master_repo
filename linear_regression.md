@@ -55,5 +55,9 @@ def print_residuals(row):
 df.apply(print_residuals, axis=1)
 ```
 
+## Gradient descent example
+For the function (x-3)**2 + 4, let’s find the x-value that produces the lowest point of that function. While we could solve this algebraically, let’s use gradient descent to do it.
 
+Here is visually what we are trying to do. As shown in Figure 5-8, we want to “step” x toward the minimum where the slope is 0.
 
+![](images/gradient_descent_of_a_quadratic_eq.PNG)
