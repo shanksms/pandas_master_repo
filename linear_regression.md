@@ -63,3 +63,12 @@ Here is visually what we are trying to do. As shown in Figure 5-8, we want to �
 ![](images/gradient_descent_of_a_quadratic_eq.PNG)
 
 ## Gradient Descent and Linear Regression
+You now might be wondering how we use this for linear regression. Well, it’s the same idea except our “variables” are m and b (or  and ) rather than x. Here’s why:  
+in a simple linear regression we already know the x- and y-values because those are provided as the training data. The “variables” we need to solve are actually  
+the parameters m and b, so we can find the best fit line that will then accept an x variable to predict a new y-value.
+
+How do we calculate the slopes for m and b? We need the partial derivatives for each of these. What function are we taking the derivative of? Remember we are  
+trying to minimize loss and that will be the sum of squares. So we need to find the derivatives of our sum of squares function with respect to m and b.  
+
+In mathematical notation, where e(x) represents the sum of squares loss function, here are the partial derivatives for m and b:  
+![](images/loss_function.PNG)
