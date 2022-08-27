@@ -72,3 +72,14 @@ trying to minimize loss and that will be the sum of squares. So we need to find 
 
 In mathematical notation, where e(x) represents the sum of squares loss function, here are the partial derivatives for m and b:  
 ![](images/loss_function.PNG)
+
+## Scholastic gradient descent
+TBD
+## Correlation coefficient or Pearson Correlation
+It measures the strength of the relationship between two variables as a value between –1 and 1. A correlation  
+coefficient closer to 0 indicates there is no correlation. A correlation coefficient closer to 1 indicates a strong positive  
+correlation, meaning when one variable increases, the other proportionally increases. If it is closer to –1 then it indicates  
+a strong negative correlation, which means as one variable increases the other proportionally decreases.  
+![](images/correlation_coefficient_examples.PNG)
+
+
