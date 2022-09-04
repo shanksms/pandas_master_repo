@@ -154,6 +154,35 @@ if seed is not reset, different set of numbers will be produced.
 then taking modulo of that sum. The resulting number is then used as the seed to generate the next "random" number.  
 When you set the seed (every time), it does the same thing every time, giving you the same numbers.  
 
+### numpy questions
+[numpy exercises] (https://www.machinelearningplus.com/python/101-numpy-exercises-python/)
+#### Replace all odd numbers in arr with -1
+```python
+import numpy as np
+arr = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+arr[arr % 2 == 1] = -1
+```
+####  Replace all odd numbers in arr with -1 without changing arr
+```python
+import numpy as np
+arr = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+out = np.where(arr % 2 == 1, -1, arr)
+```
+#### Convert a 1D array to a 2D array with 2 rows
+```python
+import numpy as np
+arr = np.arange(10)
+arr.reshape(2, -1)  # Setting to -1 automatically decides the number of cols
+```
+
+#### Stack two vectors vertically
+
+```python
+import numpy as np
+a = np.arange(10).reshape(2,-1)
+b = np.repeat(1, 10).reshape(2,-1)
+
+```
 
 
 
